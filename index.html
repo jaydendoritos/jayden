@@ -10,7 +10,7 @@
   <!-- Particles -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-  <!-- AOS (Scroll Reveal) -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
@@ -19,35 +19,49 @@
 
 <div class="wrapper">
 
+  <!-- NAV -->
+  <nav>
+    <div class="logo">JD</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
   <section class="hero">
     <h1 class="glow">Jayden Doritos</h1>
     <p class="subtitle">Gaming • Development • Digital Creation</p>
   </section>
 
-  <section class="section" data-aos="fade-up">
+  <!-- ABOUT -->
+  <section id="about" class="section" data-aos="fade-up">
     <h2>About</h2>
-    <p>I build modern gaming systems and developer experiences.</p>
+    <p>I build modern gaming systems and high-quality developer experiences.</p>
   </section>
 
-  <section class="section" data-aos="fade-up">
+  <!-- PROJECTS -->
+  <section id="projects" class="section" data-aos="fade-up">
     <h2>Projects</h2>
 
     <div class="cards">
 
       <div class="card" data-aos="zoom-in">
         <h3>Gaming Builds</h3>
-        <p>Creative game mechanics and systems.</p>
+        <p>Creative mechanics and immersive systems.</p>
       </div>
 
       <div class="card" data-aos="zoom-in">
         <h3>Web Applications</h3>
-        <p>Modern UI & developer tools.</p>
+        <p>Modern UI, tools, and polished interfaces.</p>
       </div>
 
     </div>
   </section>
 
-  <section class="section" data-aos="fade-up">
+  <!-- CONTACT -->
+  <section id="contact" class="section" data-aos="fade-up">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
   </section>
@@ -57,14 +71,14 @@
 <script>
 particlesJS("particles-js", {
   particles: {
-    number: { value: 70 },
+    number: { value: 60 },
     size: { value: 3 },
     color: { value: "#8b5cf6" },
     line_linked: {
       enable: true,
       distance: 150,
       color: "#6c5ce7",
-      opacity: 0.4
+      opacity: 0.3
     },
     move: { enable: true, speed: 2 }
   }
