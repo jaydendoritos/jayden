@@ -25,12 +25,10 @@
 
 <div class="wrapper">
 
- <section class="hero">
-  <h1>Jayden's Portfolio</h1>
-  <p class="subtitle">Development • Legal Assistance • Business Professional</p>
-</section>
-
-
+  <section class="hero">
+    <h1>Jayden's Portfolio</h1>
+    <p class="subtitle">Development • Legal Assistance • Business Professional</p>
+  </section>
 
   <section id="about" class="section reveal">
     <h2>About</h2>
@@ -63,6 +61,7 @@
 </div>
 
 <script>
+/* PARTICLES.JS CONFIG */
 particlesJS("particles-js", {
   particles: {
     number: { value: 80 },
@@ -74,7 +73,7 @@ particlesJS("particles-js", {
       color: "#6c2bd9",
       opacity: 0.4
     },
-    move: { enable: true, speed: 2 }
+    move: { enable: true, speed: 2, direction: "none", random: true }
   },
   interactivity: {
     events: {
@@ -87,16 +86,8 @@ particlesJS("particles-js", {
     }
   }
 });
-  
-<script>
-const body = document.body;
-document.addEventListener("mousemove", (e) => {
-  const x = e.clientX / window.innerWidth;
-  const y = e.clientY / window.innerHeight;
-  body.style.background = `radial-gradient(circle at ${x*100}% ${y*100}%, #1a0a1f, #000000 80%)`;
-});
-</script>
 
+/* SCROLL REVEAL */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -107,9 +98,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll(".reveal").forEach(el => {
-  observer.observe(el);
-});
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 </script>
 
 </body>
