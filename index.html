@@ -7,12 +7,9 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
-  <!-- Particles -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-  <!-- Scroll animations -->
-  
 </head>
+
 <body>
 
 <div id="particles-js"></div>
@@ -26,8 +23,7 @@
   </div>
 </nav>
 
-<div class="card reveal">
-
+<div class="wrapper">
 
   <section class="hero">
     <h1>Jayden Doritos</h1>
@@ -35,23 +31,21 @@
   </section>
 
   <section id="about" class="section reveal">
-
     <h2>About</h2>
     <p>I build immersive gaming systems and modern developer experiences.</p>
   </section>
 
   <section id="projects" class="section reveal">
-
     <h2>Projects</h2>
 
     <div class="cards">
 
-      <div class="card" data-aos="zoom-in">
+      <div class="card reveal">
         <h3>Gaming Builds</h3>
         <p>Creative mechanics and polished systems.</p>
       </div>
 
-      <div class="card" data-aos="zoom-in">
+      <div class="card reveal">
         <h3>Web Applications</h3>
         <p>High-performance interfaces and tools.</p>
       </div>
@@ -59,8 +53,7 @@
     </div>
   </section>
 
- <section id="contact" class="section reveal">
-
+  <section id="contact" class="section reveal">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
   </section>
@@ -79,7 +72,7 @@ particlesJS("particles-js", {
       color: "#6c2bd9",
       opacity: 0.4
     },
-    move: { enable: true, speed: 2 },
+    move: { enable: true, speed: 2 }
   },
   interactivity: {
     events: {
@@ -92,11 +85,7 @@ particlesJS("particles-js", {
     }
   }
 });
-</script>
 
-
-
-<script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
