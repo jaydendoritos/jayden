@@ -5,12 +5,12 @@
 }
 
 html {
-  scroll-behavior: smooth;   /* THIS enables smooth scroll */
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #0f0f0f;
+  background: #000000;
   color: white;
   overflow-x: hidden;
 }
@@ -23,33 +23,23 @@ body {
   z-index: -1;
 }
 
-/* CENTER WRAPPER */
-.wrapper {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0 30px;
-}
-
-/* NAV */
+/* NAV SPLIT */
 nav {
   width: 100%;
+  padding: 40px 80px;
   display: flex;
   justify-content: space-between;
-  padding: 40px 0;
+  align-items: center;
 }
 
 .logo {
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
 }
 
 .nav-links a {
-  margin-left: 35px;
+  margin-left: 40px;
   text-decoration: none;
   color: white;
   font-weight: 600;
@@ -58,7 +48,17 @@ nav {
 }
 
 .nav-links a:hover {
-  color: #8b5cf6;
+  color: #6c2bd9; /* royal purple */
+}
+
+/* CENTER CONTENT */
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 /* HERO */
@@ -70,31 +70,32 @@ nav {
 }
 
 .hero h1 {
-  font-size: 5rem;      /* BIGGER */
+  font-size: 5.5rem;
   font-weight: 900;
 }
 
+/* PURPLE + WINE GLOW */
 .glow {
   text-shadow:
-    0 0 15px #6c5ce7,
-    0 0 35px #8b5cf6,
-    0 0 70px #6c5ce7;
+    0 0 20px #6c2bd9,
+    0 0 40px #7c0a2a,
+    0 0 80px #6c2bd9;
 }
 
 .subtitle {
-  margin-top: 20px;
-  font-size: 1.5rem;    /* BIGGER */
-  color: #8b5cf6;
+  margin-top: 25px;
+  font-size: 1.6rem;
+  color: #7c0a2a; /* wine red */
 }
 
 /* SECTIONS */
 .section {
   width: 100%;
-  padding: 150px 0;   /* more breathing room */
+  padding: 160px 0;
 }
 
 .section h2 {
-  font-size: 3rem;    /* BIGGER */
+  font-size: 3rem;
   margin-bottom: 40px;
 }
 
@@ -109,29 +110,30 @@ nav {
   margin-top: 60px;
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   flex-wrap: wrap;
 }
 
 .card {
   position: relative;
-  width: 320px;       /* bigger */
-  padding: 50px;
+  width: 340px;
+  padding: 60px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.03);
   backdrop-filter: blur(15px);
-  transition: 0.3s ease;
+  transition: 0.4s ease;
+  z-index: 1;
 }
 
-/* Animated gradient glow border */
+/* ANIMATED GRADIENT BORDER */
 .card::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -3px;
   border-radius: 22px;
-  background: linear-gradient(45deg, #6c5ce7, #8b5cf6, #6c5ce7);
+  background: linear-gradient(45deg, #6c2bd9, #7c0a2a, #6c2bd9);
   background-size: 300% 300%;
-  animation: gradientBorder 6s ease infinite;
+  animation: gradientBorder 5s ease infinite;
   z-index: -1;
 }
 
@@ -142,9 +144,12 @@ nav {
 }
 
 .card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-15px) scale(1.03);
+  box-shadow:
+    0 0 30px #6c2bd9,
+    0 0 60px #7c0a2a;
 }
 
 a {
-  color: #8b5cf6;
+  color: #6c2bd9;
 }
