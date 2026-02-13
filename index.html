@@ -27,12 +27,9 @@
 
  <section class="hero">
   <h1>Jayden's Portfolio</h1>
-  <div class="subtitle-buttons">
-    <a href="development.html" class="skill-btn">Development</a>
-    <a href="legal.html" class="skill-btn">Legal Assistance</a>
-    <a href="business.html" class="skill-btn">Business Professional</a>
-  </div>
+  <p class="subtitle">Development • Legal Assistance • Business Professional</p>
 </section>
+
 
 
   <section id="about" class="section reveal">
@@ -90,6 +87,15 @@ particlesJS("particles-js", {
     }
   }
 });
+  
+<script>
+const body = document.body;
+document.addEventListener("mousemove", (e) => {
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+  body.style.background = `radial-gradient(circle at ${x*100}% ${y*100}%, #1a0a1f, #000000 80%)`;
+});
+</script>
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
