@@ -1,0 +1,39 @@
+/* Reset default spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Dark background */
+body {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  padding: 40px;
+}
+
+/* Accent color */
+a {
+  color: #6c5ce7;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Headings */
+h1, h2, h3 {
+  margin-bottom: 20px;
+}
+
+/* Card style sections */
+.section {
+  background: #1a1a1a;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+}
