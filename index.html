@@ -7,75 +7,77 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
-  <!-- Particles.js -->
+  <!-- Particles -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- AOS (Scroll Reveal) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Particle Background -->
-  <div id="particles-js"></div>
+<div id="particles-js"></div>
 
-  <div class="content">
+<div class="wrapper">
 
-    <nav>
-      <h3>JD</h3>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+  <section class="hero">
+    <h1 class="glow">Jayden Doritos</h1>
+    <p class="subtitle">Gaming • Development • Digital Creation</p>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <h2>About</h2>
+    <p>I build modern gaming systems and developer experiences.</p>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <h2>Projects</h2>
+
+    <div class="cards">
+
+      <div class="card" data-aos="zoom-in">
+        <h3>Gaming Builds</h3>
+        <p>Creative game mechanics and systems.</p>
       </div>
-    </nav>
 
-    <section class="hero">
-      <h1 class="glow">Jayden Doritos</h1>
-      <p class="subtitle">Gaming • Development • Digital Creation</p>
-      <a href="#projects" class="btn">View My Work</a>
-    </section>
-
-    <section id="about" class="section">
-      <h2>About Me</h2>
-      <p>I build modern gaming experiences and developer tools.</p>
-    </section>
-
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Gaming Builds</h3>
-          <p>Custom creative systems and game projects.</p>
-        </div>
-
-        <div class="card">
-          <h3>Web Apps</h3>
-          <p>Modern UI experiments and dev tools.</p>
-        </div>
+      <div class="card" data-aos="zoom-in">
+        <h3>Web Applications</h3>
+        <p>Modern UI & developer tools.</p>
       </div>
-    </section>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    </section>
+    </div>
+  </section>
 
-  </div>
+  <section class="section" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+  </section>
 
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 80 },
-        size: { value: 3 },
-        color: { value: "#8b5cf6" },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#6c5ce7",
-          opacity: 0.4
-        },
-        move: { enable: true, speed: 2 }
-      }
-    });
-  </script>
+</div>
+
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 70 },
+    size: { value: 3 },
+    color: { value: "#8b5cf6" },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#6c5ce7",
+      opacity: 0.4
+    },
+    move: { enable: true, speed: 2 }
+  }
+});
+</script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+  duration: 1000,
+  once: true
+});
+</script>
 
 </body>
 </html>
