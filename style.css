@@ -82,33 +82,27 @@ nav {
 .hero h1 {
   font-size: 5.5rem;
   font-weight: 900;
+  letter-spacing: 2px;
 
   background: linear-gradient(
     120deg,
-    #ffffff,
-    #e5e5e5,
-    #ffffff,
-    #dcdcdc
+    #ffffff 0%,
+    #f2f2f2 25%,
+    #ffffff 50%,
+    #e6e6e6 75%,
+    #ffffff 100%
   );
-  background-size: 300% 300%;
-  animation: marble 6s ease infinite;
 
+  background-size: 200% auto;
+  animation: marble 4s linear infinite;
+
+  background-clip: text;
   -webkit-background-clip: text;
+
+  color: transparent;
   -webkit-text-fill-color: transparent;
 }
 
-@keyframes marble {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-
-.subtitle {
-  margin-top: 25px;
-  font-size: 1.6rem;
-  color: #7c0a2a;
-}
 
 /* SECTIONS */
 .section {
