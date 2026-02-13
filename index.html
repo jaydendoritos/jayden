@@ -2,14 +2,13 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Jayden Doritos</title>
+  <title>Jayden's Portfolio</title>
 
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
-
 <body>
 
 <div id="particles-js"></div>
@@ -25,19 +24,26 @@
 
 <div class="wrapper">
 
+  <!-- HERO -->
   <section class="hero">
     <h1>Jayden's Portfolio</h1>
     <p class="subtitle">Development • Legal Assistance • Business Professional</p>
+
+    <div class="stats-card reveal">
+      <h3>Total Roblox Visits</h3>
+      <p id="visits-count" class="stat-number">Loading...</p>
+    </div>
   </section>
 
+  <!-- ABOUT -->
   <section id="about" class="section reveal">
     <h2>About</h2>
     <p>I build immersive gaming systems and modern developer experiences.</p>
   </section>
 
+  <!-- PROJECTS -->
   <section id="projects" class="section reveal">
     <h2>Projects</h2>
-
     <div class="cards">
 
       <div class="card reveal">
@@ -53,6 +59,7 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact" class="section reveal">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
@@ -61,7 +68,7 @@
 </div>
 
 <script>
-/* PARTICLES.JS CONFIG */
+/* PARTICLES.JS */
 particlesJS("particles-js", {
   particles: {
     number: { value: 80 },
@@ -73,7 +80,7 @@ particlesJS("particles-js", {
       color: "#6c2bd9",
       opacity: 0.4
     },
-    move: { enable: true, speed: 2, direction: "none", random: true }
+    move: { enable: true, speed: 2 }
   },
   interactivity: {
     events: {
@@ -99,6 +106,39 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+
+/* FETCH AND TOTAL ROBLOX VISITS */
+(async () => {
+  const placeIds = [
+    125723653259639,
+    509062192,
+    4475184011,
+    5361853069,
+    16315665693,
+    7845941294,
+    885450884,
+    4923930780
+  ];
+
+  let totalVisits = 0;
+
+  try {
+    await Promise.all(placeIds.map(async (id) => {
+      const res = await fetch(`https://games.roproxy.com/v2/games?universeIds=${id}`);
+      const data = await res.json();
+      if (data && data.data && data.data[0] && data.data[0].visitCount) {
+        totalVisits += data.data[0].visitCount;
+      }
+    }));
+
+    document.getElementById("visits-count").textContent = totalVisits.toLocaleString();
+
+  } catch (err) {
+    console.error("Error fetching Roblox visits:", err);
+    document.getElementById("visits-count").textContent = "N/A";
+  }
+})();
 </script>
 
 </body>
