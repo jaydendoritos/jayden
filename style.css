@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background: #0f0f0f;
@@ -19,47 +23,26 @@ body {
   z-index: -1;
 }
 
-/* CENTER EVERYTHING */
-.content {
+/* MASTER CENTER WRAPPER */
+.wrapper {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;          /* horizontal center */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;     /* horizontal center */
   text-align: center;
-}
-
-/* NAVBAR */
-nav {
-  width: 100%;
-  max-width: 1100px;
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 20px;
-}
-
-nav h3 {
-  font-weight: 900;
-}
-
-.nav-links a {
-  margin-left: 25px;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: #8b5cf6;
+  padding: 0 20px;
 }
 
 /* HERO */
 .hero {
-  height: 85vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;  /* vertical center */
   align-items: center;
-  max-width: 900px;
 }
 
 .hero h1 {
@@ -69,48 +52,30 @@ nav h3 {
 
 /* PURPLE DUAL GLOW */
 .glow {
-  color: white;
   text-shadow:
     0 0 10px #6c5ce7,
-    0 0 20px #8b5cf6,
-    0 0 40px #6c5ce7;
+    0 0 25px #8b5cf6,
+    0 0 50px #6c5ce7;
 }
 
 .subtitle {
   margin-top: 15px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #8b5cf6;
-}
-
-/* BUTTON */
-.btn {
-  margin-top: 30px;
-  padding: 12px 30px;
-  background: linear-gradient(45deg, #6c5ce7, #8b5cf6);
-  border-radius: 30px;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 25px #8b5cf6;
 }
 
 /* SECTIONS */
 .section {
-  padding: 120px 20px;
-  max-width: 900px;
+  width: 100%;
+  padding: 120px 0;
 }
 
 .section h2 {
-  margin-bottom: 40px;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
 }
 
-/* CARDS */
+/* CARDS CONTAINER */
 .cards {
   display: flex;
   justify-content: center;
@@ -118,22 +83,48 @@ nav h3 {
   flex-wrap: wrap;
 }
 
+/* CARD BASE */
 .card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
+  position: relative;
+  width: 260px;
   padding: 40px;
-  width: 280px;
   border-radius: 15px;
-  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(15px);
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+/* ANIMATED GRADIENT BORDER */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  background: linear-gradient(
+    45deg,
+    #6c5ce7,
+    #8b5cf6,
+    #6c5ce7,
+    #8b5cf6
+  );
+  background-size: 300% 300%;
+  animation: gradientBorder 6s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .card:hover {
-  transform: translateY(-12px);
-  box-shadow:
-    0 0 20px #6c5ce7,
-    0 0 40px #8b5cf6;
+  transform: translateY(-10px);
 }
 
+/* LINKS */
 a {
   color: #8b5cf6;
+  text-decoration: none;
 }
