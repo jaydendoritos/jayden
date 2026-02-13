@@ -94,11 +94,8 @@ nav {
   -webkit-text-fill-color: transparent;
 }
 
-/* MARBLE ANIMATION */
 @keyframes marble {
-  to {
-    background-position: 200% center;
-  }
+  to { background-position: 200% center; }
 }
 
 /* Subtitle under hero title */
@@ -168,9 +165,7 @@ nav {
 
 .card:hover {
   transform: translateY(-15px) scale(1.05);
-  box-shadow:
-    0 0 40px #6c2bd9,
-    0 0 80px #7c0a2a;
+  box-shadow: 0 0 40px #6c2bd9, 0 0 80px #7c0a2a;
 }
 
 /* SCROLL REVEAL */
