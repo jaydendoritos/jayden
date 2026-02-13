@@ -6,34 +6,42 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(-45deg, #0f0f0f, #111111, #1a1a1a, #0f0f0f);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  background: #0f0f0f;
   color: white;
-  text-align: center;
+  overflow-x: hidden;
 }
 
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* PARTICLES BACKGROUND */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* CENTER EVERYTHING */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 /* NAVBAR */
 nav {
+  width: 100%;
+  max-width: 1100px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px 10%;
+  padding: 30px 20px;
 }
 
 nav h3 {
   font-weight: 900;
-  letter-spacing: 2px;
 }
 
 .nav-links a {
-  margin-left: 20px;
+  margin-left: 25px;
   text-decoration: none;
   color: white;
   font-weight: 600;
@@ -41,16 +49,17 @@ nav h3 {
 }
 
 .nav-links a:hover {
-  color: #6c5ce7;
+  color: #8b5cf6;
 }
 
 /* HERO */
 .hero {
-  height: 80vh;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 900px;
 }
 
 .hero h1 {
@@ -58,16 +67,26 @@ nav h3 {
   font-weight: 900;
 }
 
+/* PURPLE DUAL GLOW */
+.glow {
+  color: white;
+  text-shadow:
+    0 0 10px #6c5ce7,
+    0 0 20px #8b5cf6,
+    0 0 40px #6c5ce7;
+}
+
 .subtitle {
   margin-top: 15px;
   font-size: 1.3rem;
-  color: #6c5ce7;
+  color: #8b5cf6;
 }
 
+/* BUTTON */
 .btn {
   margin-top: 30px;
   padding: 12px 30px;
-  background: #6c5ce7;
+  background: linear-gradient(45deg, #6c5ce7, #8b5cf6);
   border-radius: 30px;
   text-decoration: none;
   color: white;
@@ -76,13 +95,14 @@ nav h3 {
 }
 
 .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #6c5ce7;
+  transform: scale(1.08);
+  box-shadow: 0 0 25px #8b5cf6;
 }
 
 /* SECTIONS */
 .section {
-  padding: 100px 10%;
+  padding: 120px 20px;
+  max-width: 900px;
 }
 
 .section h2 {
@@ -100,7 +120,7 @@ nav h3 {
 
 .card {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   padding: 40px;
   width: 280px;
   border-radius: 15px;
@@ -108,10 +128,12 @@ nav h3 {
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 25px #6c5ce7;
+  transform: translateY(-12px);
+  box-shadow:
+    0 0 20px #6c5ce7,
+    0 0 40px #8b5cf6;
 }
 
 a {
-  color: #6c5ce7;
+  color: #8b5cf6;
 }
