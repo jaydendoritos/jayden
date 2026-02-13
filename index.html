@@ -6,49 +6,76 @@
 
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
 
-  <nav>
-    <h3>JD</h3>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
 
-  <section class="hero">
-    <h1>Jayden Doritos</h1>
-    <p class="subtitle">Gaming • Development • Digital Creation</p>
-    <a href="#projects" class="btn">View My Work</a>
-  </section>
+  <div class="content">
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>I build modern websites, gaming projects, and creative digital experiences.</p>
-  </section>
-
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Gaming Project</h3>
-        <p>Custom game builds and creative systems.</p>
+    <nav>
+      <h3>JD</h3>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </div>
+    </nav>
 
-      <div class="card">
-        <h3>Developer Tools</h3>
-        <p>Web apps and modern UI experiments.</p>
+    <section class="hero">
+      <h1 class="glow">Jayden Doritos</h1>
+      <p class="subtitle">Gaming • Development • Digital Creation</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>I build modern gaming experiences and developer tools.</p>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Gaming Builds</h3>
+          <p>Custom creative systems and game projects.</p>
+        </div>
+
+        <div class="card">
+          <h3>Web Apps</h3>
+          <p>Modern UI experiments and dev tools.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-  </section>
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    </section>
+
+  </div>
+
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        size: { value: 3 },
+        color: { value: "#8b5cf6" },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#6c5ce7",
+          opacity: 0.4
+        },
+        move: { enable: true, speed: 2 }
+      }
+    });
+  </script>
 
 </body>
 </html>
