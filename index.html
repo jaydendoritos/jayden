@@ -65,7 +65,7 @@
 </div>
 
 <script>
-/* PARTICLES.JS */
+/* PARTICLES.JS WITH MOUSE INTERACTION */
 particlesJS("particles-js", {
   particles: {
     number: { value: 80 },
@@ -77,7 +77,7 @@ particlesJS("particles-js", {
       color: "#6c2bd9",
       opacity: 0.4
     },
-    move: { enable: true, speed: 2 }
+    move: { enable: true, speed: 2, direction: "none", out_mode: "out" }
   },
   interactivity: {
     events: {
@@ -89,6 +89,20 @@ particlesJS("particles-js", {
       push: { particles_nb: 4 }
     }
   }
+});
+
+/* MOUSE MOVE INTERACTION */
+document.addEventListener("mousemove", (e) => {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  const x = (e.clientX / width - 0.5) * 2; // -1 to 1
+  const y = (e.clientY / height - 0.5) * 2;
+  
+  const particles = window.pJSDom[0].pJS.particles.array;
+  particles.forEach(p => {
+    p.vx += x * 0.05;
+    p.vy += y * 0.05;
+  });
 });
 
 /* SCROLL REVEAL */
@@ -120,14 +134,12 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
   let totalVisits = 0;
 
   try {
-    // Step 1: Convert Place IDs → Universe IDs
     const universeIds = await Promise.all(placeIds.map(async (pid) => {
       const res = await fetch(`https://api.roblox.com/universes/get-universe-containing-place?placeid=${pid}`);
       const data = await res.json();
       return data.UniverseId;
     }));
 
-    // Step 2: Fetch each Universe's visit count
     await Promise.all(universeIds.map(async (uid) => {
       const res = await fetch(`https://games.roproxy.com/v2/games?universeIds=${uid}`);
       const data = await res.json();
