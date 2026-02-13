@@ -45,17 +45,14 @@
   <section id="projects" class="section reveal">
     <h2>Projects</h2>
     <div class="cards">
-
       <div class="card reveal">
         <h3>Gaming Builds</h3>
         <p>Creative mechanics and polished systems.</p>
       </div>
-
       <div class="card reveal">
         <h3>Web Applications</h3>
         <p>High-performance interfaces and tools.</p>
       </div>
-
     </div>
   </section>
 
@@ -107,8 +104,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-
-/* FETCH AND TOTAL ROBLOX VISITS */
+/* FETCH AND TOTAL ROBLOX VISITS FROM PLACE IDS */
 (async () => {
   const placeIds = [
     125723653259639,
@@ -124,8 +120,16 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
   let totalVisits = 0;
 
   try {
-    await Promise.all(placeIds.map(async (id) => {
-      const res = await fetch(`https://games.roproxy.com/v2/games?universeIds=${id}`);
+    // Step 1: Convert Place IDs → Universe IDs
+    const universeIds = await Promise.all(placeIds.map(async (pid) => {
+      const res = await fetch(`https://api.roblox.com/universes/get-universe-containing-place?placeid=${pid}`);
+      const data = await res.json();
+      return data.UniverseId;
+    }));
+
+    // Step 2: Fetch each Universe's visit count
+    await Promise.all(universeIds.map(async (uid) => {
+      const res = await fetch(`https://games.roproxy.com/v2/games?universeIds=${uid}`);
       const data = await res.json();
       if (data && data.data && data.data[0] && data.data[0].visitCount) {
         totalVisits += data.data[0].visitCount;
