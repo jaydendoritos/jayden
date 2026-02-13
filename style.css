@@ -66,7 +66,7 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 50px;
 }
 
 .hero h1 {
@@ -97,7 +97,7 @@ nav {
 
 /* STATS CARD */
 .stats-card {
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 40px 60px;
   border-radius: 20px;
   background: rgba(255,255,255,0.05);
@@ -117,6 +117,12 @@ nav {
   background-size: 300% 300%;
   animation: gradientBorder 5s ease infinite;
   z-index: -1;
+}
+
+@keyframes gradientBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .stats-card:hover {
