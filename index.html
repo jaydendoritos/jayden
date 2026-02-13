@@ -10,38 +10,34 @@
   <!-- Particles -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-  <!-- AOS -->
+  <!-- Scroll animations -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
 <div id="particles-js"></div>
 
+<nav>
+  <div class="logo">JD</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
 <div class="wrapper">
 
-  <!-- NAV -->
-  <nav>
-    <div class="logo">JD</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
   <section class="hero">
     <h1 class="glow">Jayden Doritos</h1>
     <p class="subtitle">Gaming • Development • Digital Creation</p>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="section" data-aos="fade-up">
     <h2>About</h2>
-    <p>I build modern gaming systems and high-quality developer experiences.</p>
+    <p>I build immersive gaming systems and modern developer experiences.</p>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects" class="section" data-aos="fade-up">
     <h2>Projects</h2>
 
@@ -49,18 +45,17 @@
 
       <div class="card" data-aos="zoom-in">
         <h3>Gaming Builds</h3>
-        <p>Creative mechanics and immersive systems.</p>
+        <p>Creative mechanics and polished systems.</p>
       </div>
 
       <div class="card" data-aos="zoom-in">
         <h3>Web Applications</h3>
-        <p>Modern UI, tools, and polished interfaces.</p>
+        <p>High-performance interfaces and tools.</p>
       </div>
 
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="section" data-aos="fade-up">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
@@ -71,16 +66,26 @@
 <script>
 particlesJS("particles-js", {
   particles: {
-    number: { value: 60 },
+    number: { value: 80 },
     size: { value: 3 },
-    color: { value: "#8b5cf6" },
+    color: { value: ["#6c2bd9", "#7c0a2a"] },
     line_linked: {
       enable: true,
-      distance: 150,
-      color: "#6c5ce7",
-      opacity: 0.3
+      distance: 140,
+      color: "#6c2bd9",
+      opacity: 0.4
     },
-    move: { enable: true, speed: 2 }
+    move: { enable: true, speed: 2 },
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" }
+    },
+    modes: {
+      repulse: { distance: 120 },
+      push: { particles_nb: 4 }
+    }
   }
 });
 </script>
