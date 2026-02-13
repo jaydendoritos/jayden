@@ -79,12 +79,30 @@ nav {
 }
 
 /* GLOW */
-.glow {
-  text-shadow:
-    0 0 20px #6c2bd9,
-    0 0 40px #7c0a2a,
-    0 0 80px #6c2bd9;
+.hero h1 {
+  font-size: 5.5rem;
+  font-weight: 900;
+
+  background: linear-gradient(
+    120deg,
+    #ffffff,
+    #e5e5e5,
+    #ffffff,
+    #dcdcdc
+  );
+  background-size: 300% 300%;
+  animation: marble 6s ease infinite;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+@keyframes marble {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 .subtitle {
   margin-top: 25px;
@@ -158,4 +176,15 @@ nav {
 
 a {
   color: #6c2bd9;
+}
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
 }
