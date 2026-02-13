@@ -10,7 +10,7 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #000000;
+  background: #000;
   color: white;
   overflow-x: hidden;
 }
@@ -23,19 +23,20 @@ body {
   z-index: -1;
 }
 
-/* NAV SPLIT */
+/* NAV */
 nav {
   width: 100%;
   padding: 40px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .logo {
   font-weight: 900;
   font-size: 1.6rem;
-  letter-spacing: 2px;
 }
 
 .nav-links a {
@@ -48,25 +49,28 @@ nav {
 }
 
 .nav-links a:hover {
-  color: #6c2bd9; /* royal purple */
+  color: #6c2bd9;
 }
 
-/* CENTER CONTENT */
+/* TRUE CENTER WRAPPER */
 .wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;   /* horizontal center */
+  justify-content: center;
   text-align: center;
 }
 
-/* HERO */
+/* HERO — FULL CENTER FIX */
 .hero {
-  min-height: 90vh;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;  /* vertical center */
+  align-items: center;      /* horizontal center */
+  text-align: center;
 }
 
 .hero h1 {
@@ -74,7 +78,7 @@ nav {
   font-weight: 900;
 }
 
-/* PURPLE + WINE GLOW */
+/* GLOW */
 .glow {
   text-shadow:
     0 0 20px #6c2bd9,
@@ -85,13 +89,15 @@ nav {
 .subtitle {
   margin-top: 25px;
   font-size: 1.6rem;
-  color: #7c0a2a; /* wine red */
+  color: #7c0a2a;
 }
 
 /* SECTIONS */
 .section {
   width: 100%;
-  padding: 160px 0;
+  max-width: 1000px;
+  padding: 180px 20px;
+  text-align: center;
 }
 
 .section h2 {
@@ -125,7 +131,7 @@ nav {
   z-index: 1;
 }
 
-/* ANIMATED GRADIENT BORDER */
+/* ANIMATED BORDER */
 .card::before {
   content: "";
   position: absolute;
@@ -144,10 +150,10 @@ nav {
 }
 
 .card:hover {
-  transform: translateY(-15px) scale(1.03);
+  transform: translateY(-15px) scale(1.05);
   box-shadow:
-    0 0 30px #6c2bd9,
-    0 0 60px #7c0a2a;
+    0 0 40px #6c2bd9,
+    0 0 80px #7c0a2a;
 }
 
 a {
