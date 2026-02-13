@@ -103,3 +103,33 @@ document.querySelectorAll(".reveal").forEach(el => {
 
 </body>
 </html>
+  
+/* Subtitle buttons under hero */
+.subtitle-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skill-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  border: 2px solid #6c2bd9;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.skill-btn:hover {
+  background: linear-gradient(135deg, #6c2bd9, #7c0a2a);
+  box-shadow: 0 0 20px #6c2bd9, 0 0 40px #7c0a2a;
+  transform: scale(1.05);
+  border-color: transparent;
+}
