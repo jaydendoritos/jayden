@@ -78,20 +78,30 @@ particlesJS("particles-js", {
     move: { enable: true, speed: 2, out_mode: "out" }
   },
   interactivity: {
-    events: {
-      onhover: { enable: true, mode: "repulse" },
-      onclick: { enable: false }
-    }
+    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: false } }
   }
 });
 
-/* Tiny parallax for particles */
-document.addEventListener("mousemove", e => {
-  const px = e.clientX / window.innerWidth * .6;
-  const py = e.clientY / window.innerHeight * .6;
-  document.getElementById("particles-js").style.transform = `translate(${px}%,${py}%)`;
+/* Smooth cursor-follow parallax for particles */
+let mouseX = 0, mouseY = 0;
+let currentX = 0, currentY = 0;
+const particlesEl = document.getElementById("particles-js");
 
-  // Marble text interactive effect
+document.addEventListener("mousemove", e => {
+  mouseX = e.clientX - window.innerWidth / 2;
+  mouseY = e.clientY - window.innerHeight / 2;
+});
+
+function animateParticles() {
+  currentX += (mouseX - currentX) * 0.05; // easing for smooth lag
+  currentY += (mouseY - currentY) * 0.05;
+  particlesEl.style.transform = `translate(${currentX * 0.05}px, ${currentY * 0.05}px)`;
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+/* Marble text reacts to cursor */
+document.addEventListener("mousemove", e => {
   const marble = document.getElementById("marble-text");
   const rect = marble.getBoundingClientRect();
   const dx = e.clientX - (rect.left + rect.width / 2);
@@ -106,22 +116,18 @@ const observer = new IntersectionObserver(entries => {
     else entry.target.classList.remove("show");
   });
 }, { threshold: 0.2 });
-
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
 /* Smooth Hover Glow for Cards and Stats Card */
 document.querySelectorAll(".card, .stats-card").forEach(card => {
   const glow = card.querySelector(".hover-glow");
-
   card.addEventListener("mousemove", e => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
     glow.style.opacity = 1;
     glow.style.transform = `translate(${x}px, ${y}px)`;
   });
-
   card.addEventListener("mouseleave", () => {
     glow.style.opacity = 0;
   });
