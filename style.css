@@ -101,6 +101,7 @@ nav {
   opacity: 0;
   transform: translateY(40px);
   transition: 0.8s ease;
+  margin: 0 auto;
 }
 
 .section.show { opacity: 1; transform: translateY(0); }
@@ -113,10 +114,10 @@ nav {
 
 /* PROJECT GRID */
 .project-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 50px;
-  justify-items: center;
   margin-bottom: 50px;
 }
 
@@ -188,3 +189,4 @@ nav {
   background: linear-gradient(135deg,#6c2bd9,#7c0a2a);
   box-shadow: 0 0 20px #6c2bd9;
 }
+
