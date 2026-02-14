@@ -42,21 +42,32 @@
   <!-- PROJECTS -->
   <section id="projects" class="section reveal">
     <h2>Projects</h2>
-    <div class="project-cards">
-      <!-- Example Roblox game boxes -->
+    <div class="project-grid">
+      <!-- 16 Game Cards -->
+      <!-- Copy this block for more cards -->
       <div class="project-card">
-        <h3>Game Name 1</h3>
-        <p>Visits: 45M</p>
+        <img src="game1.jpg" alt="Game 1">
+        <h3>Game Title 1</h3>
+        <p class="description">Brief description of the game goes here.</p>
+        <p class="visits">Visits: 45M</p>
+        <div class="buttons">
+          <a href="#" class="btn-game">Play Game</a>
+          <a href="#" class="btn-group">View Group</a>
+        </div>
       </div>
+
       <div class="project-card">
-        <h3>Game Name 2</h3>
-        <p>Visits: 32M</p>
+        <img src="game2.jpg" alt="Game 2">
+        <h3>Game Title 2</h3>
+        <p class="description">Brief description of the game goes here.</p>
+        <p class="visits">Visits: 32M</p>
+        <div class="buttons">
+          <a href="#" class="btn-game">Play Game</a>
+          <a href="#" class="btn-group">View Group</a>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Game Name 3</h3>
-        <p>Visits: 12M</p>
-      </div>
-      <!-- Add more by copying project-card div -->
+
+      <!-- Add more cards here up to 16 -->
     </div>
   </section>
 
@@ -69,7 +80,7 @@
 </div>
 
 <script>
-/* ====== Fluid Interactive Particles ====== */
+/* Particles Background */
 particlesJS("particles-js", {
   particles: {
     number: { value: 120 },
@@ -93,7 +104,7 @@ document.addEventListener("mousemove", e => {
   marble.style.backgroundPosition = `${50 + dx/80}% ${50 + dy/80}%`;
 });
 
-/* Scroll Reveal Animation */
+/* Scroll Reveal */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting) entry.target.classList.add("show");
@@ -102,7 +113,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-/* Optional: Hover highlight for project cards */
+/* Card hover highlights */
 document.querySelectorAll(".project-card").forEach(card => {
   card.addEventListener("mousemove", e => {
     const rect = card.getBoundingClientRect();
