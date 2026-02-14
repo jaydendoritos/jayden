@@ -97,7 +97,7 @@ nav {
 /* SECTIONS */
 .section {
   max-width: 1500px;
-  padding: 200px 20px;
+  padding: 150px 20px;
   opacity: 0;
   transform: translateY(40px);
   transition: 0.8s ease;
@@ -107,26 +107,24 @@ nav {
 
 .section.show { opacity: 1; transform: translateY(0); }
 
-.section h2 {
-  font-size: 3rem;
-  margin-bottom: 35px;
-  text-align: center;
-}
+.section h2 { font-size: 3rem; margin-bottom: 35px; text-align: center; }
 
 .section-text { font-size: 1.3rem; margin-top: 20px; }
 
 /* PROJECT GRID */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: 50px;
   justify-items: center;
   margin-bottom: 50px;
+  width: 100%;
 }
 
 /* PROJECT CARD */
 .project-card {
-  width: 460px;
+  width: 100%;
+  max-width: 460px;
   min-height: 580px;
   padding: 25px;
   border-radius: 25px;
@@ -154,17 +152,11 @@ nav {
   margin-bottom: 15px;
 }
 
-.project-card h3 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-}
+.project-card h3 { font-size: 1.8rem; margin-bottom: 10px; }
 
 .description { font-size: 1.1rem; margin-bottom: 10px; }
 
-.visits, .ccu {
-  font-weight: 600;
-  margin-bottom: 10px;
-}
+.visits, .ccu { font-weight: 600; margin-bottom: 10px; }
 
 .ccu { color: #f1c40f; }
 
@@ -172,6 +164,7 @@ nav {
   display: flex;
   gap: 12px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .buttons a {
