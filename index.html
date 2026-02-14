@@ -25,7 +25,7 @@
 <div class="wrapper">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero reveal">
     <h1>Jayden's Portfolio</h1>
     <p class="subtitle">Development • Legal Assistance • Business Professional</p>
 
@@ -64,7 +64,6 @@
 
 </div>
 
-
 <script>
 /* ====== Particles + Parallax ====== */
 particlesJS("particles-js", {
@@ -88,13 +87,12 @@ particlesJS("particles-js", {
   }
 });
 
-/* tiny parallax */
+/* tiny parallax effect */
 document.addEventListener("mousemove", e => {
   const px = e.clientX / window.innerWidth * .6;
   const py = e.clientY / window.innerHeight * .6;
   document.getElementById("particles-js").style.transform = `translate(${px}%,${py}%)`;
 });
-
 
 /* ====== Scroll Reveal ====== */
 const observer = new IntersectionObserver(entries => {
@@ -105,7 +103,6 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
 
 /* ====== Roblox Visits Fetch ====== */
 (async () => {
