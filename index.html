@@ -6,14 +6,17 @@
 
 <link rel="stylesheet" href="style.css" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 
 <body>
 
+<!-- COSMIC NEBULA + PARTICLES -->
 <div id="nebula-background"></div>
 <div id="particles-js"></div>
 
+<!-- NAVIGATION -->
 <nav>
   <div class="logo">JD</div>
   <div class="nav-links">
@@ -23,105 +26,113 @@
   </div>
 </nav>
 
+<!-- MAIN WRAPPER -->
 <div class="wrapper">
 
-<section class="hero">
-  <h1 id="marble-text">Jayden's Portfolio</h1>
-  <p class="subtitle">Development • Legal Assistance • Business Professional</p>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1 id="marble-text">Jayden's Portfolio</h1>
+    <p class="subtitle">Development • Legal Assistance • Business Professional</p>
 
-  <div class="stats-card">
-    <p>Total Roblox Visits</p>
-    <p class="stat-number">210M+</p>
-  </div>
-</section>
+    <div class="stats-card reveal">
+      <p>Total Roblox Visits</p>
+      <p class="stat-number">210M+</p>
+    </div>
+  </section>
 
-<section id="about" class="section reveal">
-  <h2>About</h2>
-  <p>I build immersive systems, provide legal assistance, and create professional business experiences.</p>
-</section>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section reveal">
+    <h2>About</h2>
+    <p>I build immersive systems, provide legal assistance, and create professional business experiences.</p>
+  </section>
 
-<section id="projects" class="section reveal">
-  <h2>Projects</h2>
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="section reveal">
+    <h2>Projects</h2>
 
-  <div class="project-grid">
+    <div class="project-grid">
 
-    <!-- CARD 1 -->
-    <div class="project-card">
-      <div class="card-inner">
-        <img class="game-thumb" src="https://tr.rbxcdn.com/509062192/420/420/Image/Png" alt="Project Realism | City-17"/>
+      <!-- CARD 1 -->
+      <div class="project-card reveal" id="project-realism">
+        <img class="game-thumb" />
         <h3>Project Realism | City-17</h3>
-        <p class="description">Long term builder and 3d modeler, morph development and divisional engineering</p>
+        <p class="description">
+          Long term builder and 3d modeler, morph development and divisional engineering
+        </p>
         <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
         <div class="buttons">
           <a href="https://www.roblox.com/games/509062192/Project-Realism" target="_blank">Play</a>
           <a href="https://www.roblox.com/communities/2808906/The-Robine#!/about" target="_blank">Group</a>
         </div>
       </div>
-    </div>
 
-    <!-- CARD 2 -->
-    <div class="project-card">
-      <div class="card-inner">
-        <img class="game-thumb" src="https://tr.rbxcdn.com/125723653259639/420/420/Image/Png" alt="Drill Digging Simulator"/>
+      <!-- CARD 2 -->
+      <div class="project-card reveal" id="drill-digging">
+        <img class="game-thumb" />
         <h3>Drill Digging Simulator</h3>
-        <p class="description">Project Manager, Community Manager, Lead Builder and 3d Modeler, Legal and Financial Advisor</p>
+        <p class="description">
+          Project Manager, Community Manager, Lead Builder and 3d Modeler,
+          Legal and Financial Advisor
+        </p>
         <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
         <div class="buttons">
           <a href="https://www.roblox.com/games/125723653259639/Drill-Digging-Simulator" target="_blank">Play</a>
           <a href="https://www.roblox.com/communities/35592307/Arcadasi-Studios#!/about" target="_blank">Group</a>
         </div>
       </div>
-    </div>
 
-    <!-- CARD 3 -->
-    <div class="project-card">
-      <div class="card-inner">
-        <img class="game-thumb" src="https://via.placeholder.com/420x250?text=Reign+of+Royales" alt="Reign of Royales"/>
+      <!-- CARD 3 -->
+      <div class="project-card reveal" id="reign-royales">
+        <img class="game-thumb" />
         <h3>Reign of Royales</h3>
-        <p class="description">Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder - 3d Modeling as well, mid-long term developer</p>
+        <p class="description">
+          Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder - 
+          3d Modeling as well, mid-long term developer
+        </p>
         <p class="visits">Visits: --</p>
         <div class="buttons">
           <a href="#" target="_blank">Play</a>
           <a href="#" target="_blank">Group</a>
         </div>
       </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
-
-<section id="contact" class="section reveal">
-  <h2>Contact</h2>
-  <p>Email: youremail@example.com</p>
-</section>
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section reveal">
+    <h2>Contact</h2>
+    <p>Email: youremail@example.com</p>
+  </section>
 
 </div>
 
 <script>
-/* FADE IN BODY ON LOAD */
-window.addEventListener("load", () => { document.body.classList.add("loaded"); });
+/* RESET SCROLL & PAGE LOAD ANIMATION */
+window.onbeforeunload = function () { window.scrollTo(0,0); };
 
-/* RESET SCROLL ON REFRESH */
-window.onbeforeunload = function () { window.scrollTo(0, 0); };
-
-/* COSMIC BACKGROUND MOVEMENT */
+/* COSMIC BACKGROUND INTERACTION */
 const nebula = document.getElementById("nebula-background");
 document.addEventListener("mousemove", e => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 40;
-  const y = (e.clientY / window.innerHeight - 0.5) * 40;
+  const x = (e.clientX / window.innerWidth - 0.5) * 60;
+  const y = (e.clientY / window.innerHeight - 0.5) * 60;
   nebula.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
 });
 
 /* PARTICLES */
 particlesJS("particles-js", {
   particles: {
-    number: { value: 170 },
-    color: { value: ["#9b59b6","#6c2bd9","#3498db"] },
+    number: { value: 180 },
+    color: { value: ["#9b59b6","#6c2bd9","#e74c3c","#3498db"] },
     shape: { type: "circle" },
-    opacity: { value: 0.8, random: true },
+    opacity: { value: 0.9, random: true },
     size: { value: 2, random: true },
-    move: { enable: true, speed: 0.4 },
+    move: { enable: true, speed: 0.5, random: true },
     line_linked: { enable: false }
+  },
+  interactivity: {
+    events: { onhover: { enable: true, mode: "repulse" } },
+    modes: { repulse: { distance: 120, duration: 0.4 } }
   }
 });
 
@@ -130,9 +141,47 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add("show");
   });
-}, { threshold: 0.15 });
+},{ threshold: 0.15 });
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+/* AUTO THUMBNAIL + VISITS FETCH */
+async function setupGameCard(placeId, elementId){
+  const card = document.getElementById(elementId);
+  const img = card.querySelector(".game-thumb");
+  const visitSpan = card.querySelector(".visit-count");
+
+  try {
+    const thumbRes = await fetch(
+      `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${placeId}&size=512x512&format=Png`
+    );
+    const thumbData = await thumbRes.json();
+    img.src = thumbData.data[0].imageUrl;
+
+    const visitRes = await fetch(
+      `https://games.roblox.com/v1/games/multiget-place-details?placeIds=${placeId}`
+    );
+    const visitData = await visitRes.json();
+    const visits = visitData.data[0].visitCount;
+
+    if(visitSpan){
+      if(visits >= 1_000_000_000)
+        visitSpan.textContent = (visits/1_000_000_000).toFixed(1)+"B";
+      else if(visits >= 1_000_000)
+        visitSpan.textContent = (visits/1_000_000).toFixed(1)+"M";
+      else if(visits >= 1_000)
+        visitSpan.textContent = (visits/1_000).toFixed(1)+"K";
+      else visitSpan.textContent = visits;
+    }
+
+  }catch{
+    if(visitSpan) visitSpan.textContent = "N/A";
+  }
+}
+
+/* SETUP CARDS */
+setupGameCard("509062192","project-realism");
+setupGameCard("125723653259639","drill-digging");
 </script>
 
 </body>
