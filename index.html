@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
+  <!-- Particles JS -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
@@ -43,7 +44,7 @@
     <h2>Projects</h2>
 
     <div class="project-grid">
-      <!-- Card 1 -->
+      <!-- Example Project Cards -->
       <div class="project-card">
         <img src="game1.jpg" alt="Game 1">
         <h3>Game Title 1</h3>
@@ -54,8 +55,6 @@
           <a href="#">Group</a>
         </div>
       </div>
-
-      <!-- Card 2 -->
       <div class="project-card">
         <img src="game2.jpg" alt="Game 2">
         <h3>Game Title 2</h3>
@@ -66,8 +65,6 @@
           <a href="#">Group</a>
         </div>
       </div>
-
-      <!-- Card 3 -->
       <div class="project-card">
         <img src="game3.jpg" alt="Game 3">
         <h3>Game Title 3</h3>
@@ -92,19 +89,20 @@
 /* RESET SCROLL ON REFRESH */
 window.onbeforeunload = function () { window.scrollTo(0,0); };
 
-/* PARTICLES FOR GALAXY BACKGROUND */
+/* PARTICLES: Cosmic Nebula Theme */
 particlesJS("particles-js", {
   particles: {
-    number: { value: 100 },
+    number: { value: 120 },
     size: { value: 2 },
-    color: { value: ["#8e44ad", "#6c2bd9", "#e74c3c", "#9b59b6"] },
+    color: { value: ["#6c2bd9", "#9b59b6", "#e74c3c", "#3498db"] },
     line_linked: { enable: false },
     move: { enable:true, speed:0.6, random:true, direction:"none", out_mode:"out" },
     shape: { type: "circle" },
     opacity: { value: 0.8, random:true }
   },
   interactivity: {
-    events: { onhover:{ enable:false }, onclick:{ enable:false } }
+    events: { onhover:{ enable:true, mode:"repulse" }, onclick:{ enable:true, mode:"push" } },
+    modes: { repulse:{ distance:100, duration:0.4 }, push:{ particles_nb:4 } }
   }
 });
 
@@ -117,25 +115,10 @@ const observer = new IntersectionObserver((entries) => {
 },{ threshold: 0.15 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-/* CARD HOVER BUBBLE EFFECT */
-document.querySelectorAll(".project-card").forEach(card => {
-  card.addEventListener("mousemove", e => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    card.style.setProperty("--x", x + "px");
-    card.style.setProperty("--y", y + "px");
-  });
-  card.addEventListener("mouseleave", () => {
-    card.style.setProperty("--x", "-180px");
-    card.style.setProperty("--y", "-180px");
-  });
-});
-
 /* INTERACTIVE BACKGROUND MOVEMENT */
 document.addEventListener("mousemove", e => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 15;
-  const y = (e.clientY / window.innerHeight - 0.5) * 15;
+  const x = (e.clientX / window.innerWidth - 0.5) * 25;
+  const y = (e.clientY / window.innerHeight - 0.5) * 25;
   document.getElementById("particles-js").style.transform = `translate(${x}px, ${y}px)`;
 });
 </script>
