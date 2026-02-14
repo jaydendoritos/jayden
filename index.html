@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Jayden's Portfolio</title>
+
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
@@ -22,55 +24,63 @@
 
 <div class="wrapper">
 
-  <!-- HERO -->
-  <section class="hero reveal">
+  <section class="hero">
     <h1 id="marble-text">Jayden's Portfolio</h1>
     <p class="subtitle">Development • Legal Assistance • Business Professional</p>
 
-    <div class="stats-card reveal">
-      <h3>Total Roblox Visits</h3>
-      <p class="stat-number" id="total-visits">Loading...</p>
+    <div class="stats-card">
+      <p>Total Roblox Visits</p>
+      <p class="stat-number">210M+</p>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="section reveal">
     <h2>About</h2>
-    <p>I build immersive gaming systems and modern developer experiences.</p>
+    <p>I build immersive systems, provide legal assistance, and create professional business experiences.</p>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects" class="section reveal">
     <h2>Projects</h2>
+
     <div class="project-grid">
-      <!-- Example Game Cards (add more if needed) -->
-      <div class="project-card" data-game-id="125723653259639" data-game-link="#" data-group-link="#">
+      <!-- Card 1 -->
+      <div class="project-card">
         <img src="game1.jpg" alt="Game 1">
         <h3>Game Title 1</h3>
-        <p class="description">Brief description goes here.</p>
-        <p class="visits">Visits: <span class="visit-count">0</span></p>
+        <p class="description">Brief description of the game.</p>
+        <p class="visits">Visits: 50M</p>
         <div class="buttons">
-          <a href="#" class="btn-game">Play Game</a>
-          <a href="#" class="btn-group">View Group</a>
+          <a href="#">Play</a>
+          <a href="#">Group</a>
         </div>
       </div>
 
-      <div class="project-card" data-game-id="509062192" data-game-link="#" data-group-link="#">
+      <!-- Card 2 -->
+      <div class="project-card">
         <img src="game2.jpg" alt="Game 2">
         <h3>Game Title 2</h3>
-        <p class="description">Brief description goes here.</p>
-        <p class="visits">Visits: <span class="visit-count">0</span></p>
+        <p class="description">Brief description of the game.</p>
+        <p class="visits">Visits: 30M</p>
         <div class="buttons">
-          <a href="#" class="btn-game">Play Game</a>
-          <a href="#" class="btn-group">View Group</a>
+          <a href="#">Play</a>
+          <a href="#">Group</a>
         </div>
       </div>
 
-      <!-- Add more cards up to 16 as needed -->
+      <!-- Card 3 -->
+      <div class="project-card">
+        <img src="game3.jpg" alt="Game 3">
+        <h3>Game Title 3</h3>
+        <p class="description">Brief description of the game.</p>
+        <p class="visits">Visits: 40M</p>
+        <div class="buttons">
+          <a href="#">Play</a>
+          <a href="#">Group</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="section reveal">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
@@ -82,67 +92,48 @@
 /* PARTICLES */
 particlesJS("particles-js", {
   particles: {
-    number: { value: 120 },
+    number: { value: 80 },
     size: { value: 3 },
-    color: { value: ["#6c2bd9","#7c0a2a","#9b59b6"] },
-    line_linked: { enable:true, distance:150, color:"#6c2bd9", opacity:0.35 },
-    move: { enable:true, speed:2, out_mode:"out" }
+    color: { value: ["#6c2bd9", "#7c0a2a"] },
+    line_linked: { enable:true, distance:140, color:"#6c2bd9", opacity:0.4 },
+    move: { enable:true, speed:2 }
   },
   interactivity: {
-    events: { onhover: { enable:true, mode:"grab" } },
-    modes: { grab:{distance:200, line_linked:{opacity:0.5}} }
+    events: { onhover:{ enable:true, mode:"repulse" }, onclick:{ enable:true, mode:"push" } },
+    modes: { repulse:{ distance:120 }, push:{ particles_nb:4 } }
   }
-});
-
-/* MARBLE TEXT INTERACTION */
-document.addEventListener("mousemove", e => {
-  const marble = document.getElementById("marble-text");
-  const rect = marble.getBoundingClientRect();
-  const dx = e.clientX - (rect.left + rect.width / 2);
-  const dy = e.clientY - (rect.top + rect.height / 2);
-  marble.style.backgroundPosition = `${50 + dx/80}% ${50 + dy/80}%`;
 });
 
 /* SCROLL REVEAL */
-const observer = new IntersectionObserver(entries => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add("show");
-    else entry.target.classList.remove("show");
+    if(entry.isIntersecting) { entry.target.classList.add("show"); }
+    else { entry.target.classList.remove("show"); }
   });
-}, { threshold: 0.2 });
+},{ threshold: 0.15 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-/* CARD HOVER EFFECT */
+/* CARD HOVER BUBBLE EFFECT */
 document.querySelectorAll(".project-card").forEach(card => {
   card.addEventListener("mousemove", e => {
     const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    card.style.setProperty('--x', `${x}px`);
-    card.style.setProperty('--y', `${y}px`);
+    const x = e.clientX - rect.left - 70;
+    const y = e.clientY - rect.top - 70;
+    card.style.setProperty("--x", x + "px");
+    card.style.setProperty("--y", y + "px");
+  });
+  card.addEventListener("mouseleave", () => {
+    card.style.setProperty("--x", "-140px");
+    card.style.setProperty("--y", "-140px");
   });
 });
 
-/* FETCH ROBLOX VISITS */
-async function fetchVisits() {
-  const cards = document.querySelectorAll('.project-card');
-  let totalVisits = 0;
-  for (let card of cards) {
-    const gameId = card.dataset.gameId;
-    try {
-      const response = await fetch(`https://games.roblox.com/v1/games?universeIds=${gameId}`);
-      const data = await response.json();
-      const visits = data.data[0]?.visits || 0;
-      card.querySelector(".visit-count").textContent = visits.toLocaleString();
-      totalVisits += visits;
-    } catch(e) {
-      card.querySelector(".visit-count").textContent = "N/A";
-    }
-  }
-  document.getElementById("total-visits").textContent = totalVisits.toLocaleString() + "+";
-}
-
-fetchVisits();
+/* INTERACTIVE BACKGROUND WITH CURSOR */
+document.addEventListener("mousemove", e => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 20;
+  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+  document.getElementById("particles-js").style.transform = `translate(${x}px, ${y}px)`;
+});
 </script>
 
 </body>
