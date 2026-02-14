@@ -54,6 +54,7 @@
         Long term builder and 3d modeler, morph development and divisional engineering
       </p>
       <p class="visits">Visits: 18M+</p>
+      <p class="ccu">Highest CCU: 10,000</p>
       <div class="buttons">
         <a href="https://www.roblox.com/games/509062192/Project-Realism" target="_blank">Play</a>
         <a href="https://www.roblox.com/communities/2808906/The-Robine#!/about" target="_blank">Group</a>
@@ -84,40 +85,46 @@
         Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder - 3d Modeling as well, mid-long term developer
       </p>
       <p class="visits">Visits: 1.5M+</p>
+      <p class="ccu">Highest CCU: [NONE]</p>
       <div class="buttons">
         <a href="https://www.roblox.com/games/7845941294/Reversal-Compound" target="_blank">Play</a>
         <a href="https://www.roblox.com/communities/5540551/Reign-of-Royales#!/about" target="_blank">Group</a>
       </div>
     </div>
 
-    <!-- TEMPLATE CARD ROW 2 -->
+    <!-- TEMPLATE CARD 4 -->
     <div class="project-card reveal">
       <img class="game-thumb" src="https://via.placeholder.com/512x250.png?text=Game+Image" />
       <h3>Game Name</h3>
       <p class="description">Short description about your role in the game.</p>
       <p class="visits">Visits: --</p>
+      <p class="ccu">Highest CCU: --</p>
       <div class="buttons">
         <a href="#" target="_blank">Play</a>
         <a href="#" target="_blank">Group</a>
       </div>
     </div>
 
+    <!-- TEMPLATE CARD 5 -->
     <div class="project-card reveal">
       <img class="game-thumb" src="https://via.placeholder.com/512x250.png?text=Game+Image" />
       <h3>Game Name</h3>
       <p class="description">Short description about your role in the game.</p>
       <p class="visits">Visits: --</p>
+      <p class="ccu">Highest CCU: --</p>
       <div class="buttons">
         <a href="#" target="_blank">Play</a>
         <a href="#" target="_blank">Group</a>
       </div>
     </div>
 
+    <!-- TEMPLATE CARD 6 -->
     <div class="project-card reveal">
       <img class="game-thumb" src="https://via.placeholder.com/512x250.png?text=Game+Image" />
       <h3>Game Name</h3>
       <p class="description">Short description about your role in the game.</p>
       <p class="visits">Visits: --</p>
+      <p class="ccu">Highest CCU: --</p>
       <div class="buttons">
         <a href="#" target="_blank">Play</a>
         <a href="#" target="_blank">Group</a>
@@ -135,12 +142,8 @@
 </div>
 
 <script>
-/* RESET SCROLL */
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-};
+window.onbeforeunload = function () { window.scrollTo(0, 0); };
 
-/* COSMIC BACKGROUND */
 const nebula = document.getElementById("nebula-background");
 document.addEventListener("mousemove", e => {
   const x = (e.clientX / window.innerWidth - 0.5) * 50;
@@ -148,7 +151,6 @@ document.addEventListener("mousemove", e => {
   nebula.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
 });
 
-/* PARTICLES */
 particlesJS("particles-js", {
   particles: {
     number: { value: 180 },
@@ -165,7 +167,6 @@ particlesJS("particles-js", {
   }
 });
 
-/* SCROLL REVEAL */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add("show");
