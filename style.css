@@ -58,6 +58,12 @@ nav {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  opacity: 0;
+  animation: fadeInWrapper 1.2s forwards;
+}
+
+@keyframes fadeInWrapper {
+  to { opacity: 1; }
 }
 
 /* HERO */
@@ -67,7 +73,14 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 30px;
+  transform: translateY(-20px);
+  animation: heroEnter 1s ease forwards;
+}
+
+@keyframes heroEnter {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero h1 {
@@ -102,31 +115,20 @@ nav {
   backdrop-filter: blur(25px);
   z-index: 1;
   text-align: center;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: default;
 }
 
 .stats-card:hover {
+  transform: translateY(-6px) scale(1.03) rotateZ(-1deg);
   border-color: #7c0a2a;
-  transform: scale(1.03);
-  box-shadow: 0 0 28px #7c0a2a, 0 0 55px #9b59b6;
-}
-
-.stats-card h3 {
-  font-size: 1.9rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 900;
-  color: #fff;
+  box-shadow: 0 0 30px #7c0a2a, 0 0 60px #9b59b6;
 }
 
 /* SECTIONS */
 .section {
   max-width: 1000px;
-  padding: 170px 20px;
+  padding: 250px 20px 170px 20px; /* pushed down to avoid showing on home */
 }
 
 .section h2 {
@@ -156,15 +158,28 @@ nav {
   background: rgba(0,0,0,0.35);
   border: 2px solid #4a2a63;
   backdrop-filter: blur(20px);
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover {
+  transform: translateY(-6px) scale(1.02) rotateZ(-0.5deg);
   border-color: #7c0a2a;
   box-shadow: 0 0 30px #7c0a2a, 0 0 60px #9b59b6;
-  transform: translateY(-8px);
 }
 
 a {
   color: #9b59b6;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
 }
