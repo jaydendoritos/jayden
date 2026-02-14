@@ -32,7 +32,7 @@
 
     <div class="stats-card reveal">
       <p>Total Roblox Visits</p>
-      <p class="stat-number" id="total-visits">Loading...</p>
+      <p class="stat-number">210M+</p>
     </div>
   </section>
 
@@ -48,12 +48,12 @@
 
       <!-- CARD 1 -->
       <div class="project-card reveal" id="project-realism">
-        <img class="game-thumb" />
+        <img class="game-thumb" src="https://tr.rbxcdn.com/8c1e4c3a5e5b1dc7e21b7b3f7c7b7d4e/768/768/Image/Png" />
         <h3>Project Realism | City-17</h3>
         <p class="description">
           Long term builder and 3d modeler, morph development and divisional engineering
         </p>
-        <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
+        <p class="visits">Visits: 2.1M</p>
         <div class="buttons">
           <a href="https://www.roblox.com/games/509062192/Project-Realism" target="_blank">Play</a>
           <a href="https://www.roblox.com/communities/2808906/The-Robine#!/about" target="_blank">Group</a>
@@ -62,13 +62,13 @@
 
       <!-- CARD 2 -->
       <div class="project-card reveal" id="drill-digging">
-        <img class="game-thumb" />
+        <img class="game-thumb" src="https://tr.rbxcdn.com/1234567890abcdef1234567890abcdef/768/768/Image/Png" />
         <h3>Drill Digging Simulator</h3>
         <p class="description">
           Project Manager, Community Manager, Lead Builder and 3d Modeler,
           Legal and Financial Advisor
         </p>
-        <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
+        <p class="visits">Visits: 3.5M</p>
         <div class="buttons">
           <a href="https://www.roblox.com/games/125723653259639/Drill-Digging-Simulator" target="_blank">Play</a>
           <a href="https://www.roblox.com/communities/35592307/Arcadasi-Studios#!/about" target="_blank">Group</a>
@@ -83,7 +83,7 @@
           Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder - 
           3d Modeling as well, mid-long term developer
         </p>
-        <p class="visits">Visits: --</p>
+        <p class="visits">Visits: 1.2M</p>
         <div class="buttons">
           <a href="#" target="_blank">Play</a>
           <a href="#" target="_blank">Group</a>
@@ -137,44 +137,6 @@ const observer = new IntersectionObserver(entries => {
   });
 },{ threshold: 0.15 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-/* HELPER: FORMAT VISITS */
-function formatNumber(num){
-  if(num >= 1_000_000_000) return (num/1_000_000_000).toFixed(1)+"B";
-  if(num >= 1_000_000) return (num/1_000_000).toFixed(1)+"M";
-  if(num >= 1_000) return (num/1_000).toFixed(1)+"K";
-  return num;
-}
-
-/* FETCH ROBLOX DATA */
-async function setupGameCard(placeId, elementId){
-  const card = document.getElementById(elementId);
-  const img = card.querySelector(".game-thumb");
-  const visitSpan = card.querySelector(".visit-count");
-
-  try {
-    // Fetch thumbnail
-    const thumbRes = await fetch(`https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${placeId}&size=512x512&format=Png`);
-    const thumbData = await thumbRes.json();
-    if(thumbData.data && thumbData.data[0] && thumbData.data[0].imageUrl) img.src = thumbData.data[0].imageUrl;
-
-    // Fetch visits
-    const visitRes = await fetch(`https://games.roblox.com/v1/games/multiget-place-details?placeIds=${placeId}`);
-    const visitData = await visitRes.json();
-    if(visitData.data && visitData.data[0]) {
-      const visits = visitData.data[0].visitCount;
-      if(visitSpan) visitSpan.textContent = formatNumber(visits);
-    }
-
-  } catch(err){
-    if(visitSpan) visitSpan.textContent = "N/A";
-    console.error("Roblox API error:", err);
-  }
-}
-
-/* SETUP CARDS */
-setupGameCard("509062192","project-realism");
-setupGameCard("125723653259639","drill-digging");
 
 </script>
 
