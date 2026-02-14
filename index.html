@@ -12,6 +12,14 @@
 
 <body>
 
+<!-- ===== LOADER ===== -->
+<div id="loader">
+  <div class="loader-core">
+    <div class="loader-ring"></div>
+    <div class="loader-text">JD</div>
+  </div>
+</div>
+
 <div id="nebula-background"></div>
 <div id="particles-js"></div>
 
@@ -47,8 +55,6 @@
   <h2>Projects</h2>
 
   <div class="project-grid">
-
-    <!-- ROW 1 -->
 
     <div class="project-card reveal">
       <img class="game-thumb" src="image.png" alt="Project Realism City-17" />
@@ -92,8 +98,6 @@
         <a href="https://www.roblox.com/communities/5540551/Reign-of-Royales#!/about" target="_blank">Group</a>
       </div>
     </div>
-
-    <!-- ROW 2 -->
 
     <div class="project-card reveal">
       <img class="game-thumb" src="https://via.placeholder.com/512x250.png?text=Game+Image" />
@@ -176,6 +180,11 @@ const observer = new IntersectionObserver(entries => {
 },{ threshold: 0.15 });
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+/* LOADER FADE */
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
 </script>
 
 </body>
