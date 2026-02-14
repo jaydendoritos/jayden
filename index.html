@@ -31,7 +31,7 @@
 
     <div class="stats-card reveal">
       <h3>Total Roblox Visits</h3>
-      <p id="visits-count" class="stat-number">Loading...</p>
+      <p id="visits-count" class="stat-number">…calculating</p>
     </div>
   </section>
 
@@ -64,61 +64,50 @@
 
 </div>
 
+
 <script>
-/* PARTICLES.JS WITH MOUSE INTERACTION */
+/* ====== Particles + Parallax ====== */
 particlesJS("particles-js", {
   particles: {
-    number: { value: 80 },
+    number: { value: 100 },
     size: { value: 3 },
     color: { value: ["#6c2bd9", "#7c0a2a"] },
     line_linked: {
       enable: true,
-      distance: 140,
+      distance: 160,
       color: "#6c2bd9",
-      opacity: 0.4
+      opacity: 0.45
     },
-    move: { enable: true, speed: 2, direction: "none", out_mode: "out" }
+    move: { enable: true, speed: 2, out_mode: "out" }
   },
   interactivity: {
     events: {
       onhover: { enable: true, mode: "repulse" },
-      onclick: { enable: true, mode: "push" }
-    },
-    modes: {
-      repulse: { distance: 120 },
-      push: { particles_nb: 4 }
+      onclick: { enable: false }
     }
   }
 });
 
-/* MOUSE MOVE INTERACTION */
-document.addEventListener("mousemove", (e) => {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  const x = (e.clientX / width - 0.5) * 2; // -1 to 1
-  const y = (e.clientY / height - 0.5) * 2;
-  
-  const particles = window.pJSDom[0].pJS.particles.array;
-  particles.forEach(p => {
-    p.vx += x * 0.05;
-    p.vy += y * 0.05;
-  });
+/* tiny parallax */
+document.addEventListener("mousemove", e => {
+  const px = e.clientX / window.innerWidth * .6;
+  const py = e.clientY / window.innerHeight * .6;
+  document.getElementById("particles-js").style.transform = `translate(${px}%,${py}%)`;
 });
 
-/* SCROLL REVEAL */
-const observer = new IntersectionObserver((entries) => {
+
+/* ====== Scroll Reveal ====== */
+const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    } else {
-      entry.target.classList.remove("show");
-    }
+    if (entry.isIntersecting) entry.target.classList.add("show");
+    else entry.target.classList.remove("show");
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.2 });
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-/* FETCH AND TOTAL ROBLOX VISITS FROM PLACE IDS */
+
+/* ====== Roblox Visits Fetch ====== */
 (async () => {
   const placeIds = [
     125723653259639,
@@ -131,29 +120,33 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
     4923930780
   ];
 
-  let totalVisits = 0;
+  let total = 0;
 
-  try {
-    const universeIds = await Promise.all(placeIds.map(async (pid) => {
-      const res = await fetch(`https://api.roblox.com/universes/get-universe-containing-place?placeid=${pid}`);
-      const data = await res.json();
-      return data.UniverseId;
-    }));
-
-    await Promise.all(universeIds.map(async (uid) => {
-      const res = await fetch(`https://games.roproxy.com/v2/games?universeIds=${uid}`);
-      const data = await res.json();
-      if (data && data.data && data.data[0] && data.data[0].visitCount) {
-        totalVisits += data.data[0].visitCount;
-      }
-    }));
-
-    document.getElementById("visits-count").textContent = totalVisits.toLocaleString();
-
-  } catch (err) {
-    console.error("Error fetching Roblox visits:", err);
-    document.getElementById("visits-count").textContent = "N/A";
+  async function getUniverse(pid) {
+    try {
+      const r = await fetch(`https://api.roblox.com/universes/get-universe-containing-place?placeid=${pid}`);
+      const data = await r.json();
+      if (data && data.UniverseId) return data.UniverseId;
+    } catch {}
+    return null;
   }
+
+  async function getVisits(universeId) {
+    try {
+      const r = await fetch(`https://games.roproxy.com/v2/games?universeIds=${universeId}`);
+      const j = await r.json();
+      return j?.data?.[0]?.visitCount ?? 0;
+    } catch {
+      return 0;
+    }
+  }
+
+  for (let pid of placeIds) {
+    const uid = await getUniverse(pid);
+    if (uid) total += await getVisits(uid);
+  }
+
+  document.getElementById("visits-count").textContent = total.toLocaleString();
 })();
 </script>
 
