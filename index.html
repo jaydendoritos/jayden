@@ -1,132 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Jayden's Portfolio</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 
 <body>
 
-<div class="galaxy-bg"></div>
+<div id="nebula-background"></div>
+<div id="particles-js"></div>
 
 <nav>
   <div class="logo">JD</div>
   <div class="nav-links">
+    <a href="#about">About</a>
     <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
+<div class="wrapper">
+
 <section class="hero">
-  <h1 class="title">Jayden's Portfolio</h1>
+  <h1 id="marble-text">Jayden's Portfolio</h1>
   <p class="subtitle">Development • Legal Assistance • Business Professional</p>
 
-  <div class="stats-box">
+  <div class="stats-card">
     <p>Total Roblox Visits</p>
-    <p id="totalVisits">Loading...</p>
+    <p class="stat-number">210M+</p>
   </div>
 </section>
 
-<section id="projects" class="projects-section">
+<section id="about" class="section reveal">
+  <h2>About</h2>
+  <p>I build immersive systems, provide legal assistance, and create professional business experiences.</p>
+</section>
+
+<section id="projects" class="section reveal">
   <h2>Projects</h2>
 
-  <div class="projects-grid">
+  <div class="project-grid">
 
     <!-- CARD 1 -->
-    <div class="project-card" id="city17">
-      <img class="game-image">
+    <div class="project-card" id="project-realism">
+      <img class="game-thumb" />
       <h3>Project Realism | City-17</h3>
-      <p>
+      <p class="description">
         Long term builder and 3d modeler, morph development and divisional engineering
       </p>
-      <p>Visits: <span class="visits">Loading...</span></p>
-      <div class="card-buttons">
-        <a href="https://www.roblox.com/games/509062192/Project-Realism" target="_blank">Game</a>
+      <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
+      <div class="buttons">
+        <a href="https://www.roblox.com/games/509062192/Project-Realism" target="_blank">Play</a>
         <a href="https://www.roblox.com/communities/2808906/The-Robine#!/about" target="_blank">Group</a>
       </div>
     </div>
 
     <!-- CARD 2 -->
-    <div class="project-card" id="drill">
-      <img class="game-image">
+    <div class="project-card" id="drill-digging">
+      <img class="game-thumb" />
       <h3>Drill Digging Simulator</h3>
-      <p>
+      <p class="description">
         Project Manager, Community Manager, Lead Builder and 3d Modeler,
         Legal and Financial Advisor
       </p>
-      <p>Visits: <span class="visits">Loading...</span></p>
-      <div class="card-buttons">
-        <a href="https://www.roblox.com/games/125723653259639/Drill-Digging-Simulator" target="_blank">Game</a>
+      <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
+      <div class="buttons">
+        <a href="https://www.roblox.com/games/125723653259639/Drill-Digging-Simulator" target="_blank">Play</a>
         <a href="https://www.roblox.com/communities/35592307/Arcadasi-Studios#!/about" target="_blank">Group</a>
       </div>
     </div>
 
     <!-- CARD 3 -->
-    <div class="project-card">
+    <div class="project-card" id="reign-royales">
+      <img class="game-thumb" />
       <h3>Reign of Royales</h3>
-      <p>
-        Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder -
+      <p class="description">
+        Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder - 
         3d Modeling as well, mid-long term developer
       </p>
-      <p>Visits: --</p>
+      <p class="visits">Visits: --</p>
+      <div class="buttons">
+        <a href="#" target="_blank">Play</a>
+        <a href="#" target="_blank">Group</a>
+      </div>
     </div>
 
   </div>
 </section>
 
+<section id="contact" class="section reveal">
+  <h2>Contact</h2>
+  <p>Email: youremail@example.com</p>
+</section>
+
+</div>
+
 <script>
 
-/* Smooth Count Animation */
-function animateCount(el, target) {
-  let start = 0;
-  const duration = 1200;
-  const increment = target / (duration / 16);
+/* RESET SCROLL */
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
 
-  const counter = setInterval(() => {
-    start += increment;
-    if (start >= target) {
-      start = target;
-      clearInterval(counter);
-    }
-    el.textContent = formatNumber(Math.floor(start));
-  }, 16);
-}
+/* COSMIC BACKGROUND MOVEMENT */
+const nebula = document.getElementById("nebula-background");
+document.addEventListener("mousemove", e => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 50;
+  const y = (e.clientY / window.innerHeight - 0.5) * 50;
+  nebula.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+});
 
-function formatNumber(num) {
-  if (num >= 1_000_000) return (num/1_000_000).toFixed(1)+"M";
-  if (num >= 1_000) return (num/1_000).toFixed(1)+"K";
-  return num;
-}
+/* PARTICLES */
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 180 },
+    color: { value: ["#9b59b6","#6c2bd9","#e74c3c","#3498db"] },
+    shape: { type: "circle" },
+    opacity: { value: 0.9, random: true },
+    size: { value: 2, random: true },
+    move: { enable: true, speed: 0.4, random: true },
+    line_linked: { enable: false }
+  },
+  interactivity: {
+    events: { onhover: { enable: true, mode: "repulse" } },
+    modes: { repulse: { distance: 120, duration: 0.4 } }
+  }
+});
 
-let total = 0;
+/* SCROLL REVEAL */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("show");
+  });
+},{ threshold: 0.15 });
 
-async function loadGame(placeId, cardId) {
-  const card = document.getElementById(cardId);
-  const img = card.querySelector(".game-image");
-  const visitEl = card.querySelector(".visits");
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+/* AUTO THUMBNAIL + VISIT FETCH */
+async function setupGameCard(placeId, elementId) {
+  const card = document.getElementById(elementId);
+  const img = card.querySelector(".game-thumb");
+  const visitSpan = card.querySelector(".visit-count");
 
   try {
-    const thumb = await fetch(`https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${placeId}&size=512x512&format=Png`);
-    const thumbData = await thumb.json();
+    // Fetch thumbnail
+    const thumbRes = await fetch(
+      `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${placeId}&size=512x512&format=Png`
+    );
+    const thumbData = await thumbRes.json();
     img.src = thumbData.data[0].imageUrl;
 
-    const visits = await fetch(`https://games.roblox.com/v1/games/multiget-place-details?placeIds=${placeId}`);
-    const visitData = await visits.json();
-    const count = visitData.data[0].visitCount;
+    // Fetch visits
+    const visitRes = await fetch(
+      `https://games.roblox.com/v1/games/multiget-place-details?placeIds=${placeId}`
+    );
+    const visitData = await visitRes.json();
+    const visits = visitData.data[0].visitCount;
 
-    total += count;
-
-    animateCount(visitEl, count);
-    animateCount(document.getElementById("totalVisits"), total);
+    if (visitSpan) {
+      if (visits >= 1_000_000_000)
+        visitSpan.textContent = (visits / 1_000_000_000).toFixed(1) + "B";
+      else if (visits >= 1_000_000)
+        visitSpan.textContent = (visits / 1_000_000).toFixed(1) + "M";
+      else if (visits >= 1_000)
+        visitSpan.textContent = (visits / 1_000).toFixed(1) + "K";
+      else
+        visitSpan.textContent = visits;
+    }
 
   } catch {
-    visitEl.textContent = "N/A";
+    if (visitSpan) visitSpan.textContent = "N/A";
   }
 }
 
-loadGame("509062192", "city17");
-loadGame("125723653259639", "drill");
+/* SETUP CARDS */
+setupGameCard("509062192", "project-realism");
+setupGameCard("125723653259639", "drill-digging");
 
 </script>
 
