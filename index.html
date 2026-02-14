@@ -48,7 +48,7 @@
 
     <!-- CARD 1 -->
     <div class="project-card" id="project-realism">
-      <img src="city17.jpg" alt="Project Realism | City-17" />
+      <img class="game-thumb" />
       <h3>Project Realism | City-17</h3>
       <p class="description">
         Long term builder and 3d modeler, morph development and divisional engineering
@@ -62,7 +62,7 @@
 
     <!-- CARD 2 -->
     <div class="project-card" id="drill-digging">
-      <img src="drill-digging.jpg" alt="Drill Digging Simulator" />
+      <img class="game-thumb" />
       <h3>Drill Digging Simulator</h3>
       <p class="description">
         Project Manager, Community Manager, Lead Builder and 3d Modeler,
@@ -75,17 +75,18 @@
       </div>
     </div>
 
-    <!-- CARD 3 (Placeholder) -->
-    <div class="project-card">
-      <img src="placeholder.jpg" alt="Coming Soon" />
-      <h3>Coming Soon</h3>
+    <!-- CARD 3 -->
+    <div class="project-card" id="reign-royales">
+      <img class="game-thumb" />
+      <h3>Reign of Royales</h3>
       <p class="description">
-        Additional projects will be displayed here.
+        Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder - 
+        3d Modeling as well, mid-long term developer
       </p>
       <p class="visits">Visits: --</p>
       <div class="buttons">
-        <a href="#">Play</a>
-        <a href="#">Group</a>
+        <a href="#" target="_blank">Play</a>
+        <a href="#" target="_blank">Group</a>
       </div>
     </div>
 
@@ -106,18 +107,18 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
-/* NEBULA INTERACTION */
+/* COSMIC BACKGROUND MOVEMENT */
 const nebula = document.getElementById("nebula-background");
 document.addEventListener("mousemove", e => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 40;
-  const y = (e.clientY / window.innerHeight - 0.5) * 40;
+  const x = (e.clientX / window.innerWidth - 0.5) * 50;
+  const y = (e.clientY / window.innerHeight - 0.5) * 50;
   nebula.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
 });
 
 /* PARTICLES */
 particlesJS("particles-js", {
   particles: {
-    number: { value: 160, density: { enable: true, value_area: 800 } },
+    number: { value: 180 },
     color: { value: ["#9b59b6","#6c2bd9","#e74c3c","#3498db"] },
     shape: { type: "circle" },
     opacity: { value: 0.9, random: true },
@@ -127,7 +128,7 @@ particlesJS("particles-js", {
   },
   interactivity: {
     events: { onhover: { enable: true, mode: "repulse" } },
-    modes: { repulse: { distance: 100, duration: 0.4 } }
+    modes: { repulse: { distance: 120, duration: 0.4 } }
   }
 });
 
@@ -140,34 +141,46 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-/* VISIT FETCH FUNCTION */
-async function fetchVisits(placeId, elementId) {
-  const visitSpan = document.querySelector(`#${elementId} .visit-count`);
+/* AUTO THUMBNAIL + VISIT FETCH */
+async function setupGameCard(placeId, elementId) {
+  const card = document.getElementById(elementId);
+  const img = card.querySelector(".game-thumb");
+  const visitSpan = card.querySelector(".visit-count");
+
   try {
-    const response = await fetch(
+    // Fetch thumbnail
+    const thumbRes = await fetch(
+      `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${placeId}&size=512x512&format=Png`
+    );
+    const thumbData = await thumbRes.json();
+    img.src = thumbData.data[0].imageUrl;
+
+    // Fetch visits
+    const visitRes = await fetch(
       `https://games.roblox.com/v1/games/multiget-place-details?placeIds=${placeId}`
     );
-    const data = await response.json();
-    const visits = data.data[0].visitCount;
+    const visitData = await visitRes.json();
+    const visits = visitData.data[0].visitCount;
 
-    if (visits >= 1_000_000_000) {
-      visitSpan.textContent = (visits / 1_000_000_000).toFixed(1) + "B";
-    } else if (visits >= 1_000_000) {
-      visitSpan.textContent = (visits / 1_000_000).toFixed(1) + "M";
-    } else if (visits >= 1_000) {
-      visitSpan.textContent = (visits / 1_000).toFixed(1) + "K";
-    } else {
-      visitSpan.textContent = visits;
+    if (visitSpan) {
+      if (visits >= 1_000_000_000)
+        visitSpan.textContent = (visits / 1_000_000_000).toFixed(1) + "B";
+      else if (visits >= 1_000_000)
+        visitSpan.textContent = (visits / 1_000_000).toFixed(1) + "M";
+      else if (visits >= 1_000)
+        visitSpan.textContent = (visits / 1_000).toFixed(1) + "K";
+      else
+        visitSpan.textContent = visits;
     }
 
   } catch {
-    visitSpan.textContent = "N/A";
+    if (visitSpan) visitSpan.textContent = "N/A";
   }
 }
 
-/* FETCH BOTH GAMES */
-fetchVisits("509062192", "project-realism");
-fetchVisits("125723653259639", "drill-digging");
+/* SETUP CARDS */
+setupGameCard("509062192", "project-realism");
+setupGameCard("125723653259639", "drill-digging");
 
 </script>
 
