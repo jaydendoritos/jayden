@@ -29,7 +29,7 @@
 
     <div class="stats-card reveal">
       <h3>Total Roblox Visits</h3>
-      <p class="stat-number">210M+</p>
+      <p class="stat-number" id="total-visits">Loading...</p>
     </div>
   </section>
 
@@ -43,31 +43,30 @@
   <section id="projects" class="section reveal">
     <h2>Projects</h2>
     <div class="project-grid">
-      <!-- 16 Game Cards -->
-      <!-- Copy this block for more cards -->
-      <div class="project-card">
+      <!-- Example Game Cards (add more if needed) -->
+      <div class="project-card" data-game-id="125723653259639" data-game-link="#" data-group-link="#">
         <img src="game1.jpg" alt="Game 1">
         <h3>Game Title 1</h3>
-        <p class="description">Brief description of the game goes here.</p>
-        <p class="visits">Visits: 45M</p>
+        <p class="description">Brief description goes here.</p>
+        <p class="visits">Visits: <span class="visit-count">0</span></p>
         <div class="buttons">
           <a href="#" class="btn-game">Play Game</a>
           <a href="#" class="btn-group">View Group</a>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-game-id="509062192" data-game-link="#" data-group-link="#">
         <img src="game2.jpg" alt="Game 2">
         <h3>Game Title 2</h3>
-        <p class="description">Brief description of the game goes here.</p>
-        <p class="visits">Visits: 32M</p>
+        <p class="description">Brief description goes here.</p>
+        <p class="visits">Visits: <span class="visit-count">0</span></p>
         <div class="buttons">
           <a href="#" class="btn-game">Play Game</a>
           <a href="#" class="btn-group">View Group</a>
         </div>
       </div>
 
-      <!-- Add more cards here up to 16 -->
+      <!-- Add more cards up to 16 as needed -->
     </div>
   </section>
 
@@ -80,7 +79,7 @@
 </div>
 
 <script>
-/* Particles Background */
+/* PARTICLES */
 particlesJS("particles-js", {
   particles: {
     number: { value: 120 },
@@ -90,12 +89,12 @@ particlesJS("particles-js", {
     move: { enable:true, speed:2, out_mode:"out" }
   },
   interactivity: {
-    events: { onhover: { enable:true, mode:"grab" }, onclick:{enable:false} },
+    events: { onhover: { enable:true, mode:"grab" } },
     modes: { grab:{distance:200, line_linked:{opacity:0.5}} }
   }
 });
 
-/* Marble Text Cursor Interaction */
+/* MARBLE TEXT INTERACTION */
 document.addEventListener("mousemove", e => {
   const marble = document.getElementById("marble-text");
   const rect = marble.getBoundingClientRect();
@@ -104,7 +103,7 @@ document.addEventListener("mousemove", e => {
   marble.style.backgroundPosition = `${50 + dx/80}% ${50 + dy/80}%`;
 });
 
-/* Scroll Reveal */
+/* SCROLL REVEAL */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting) entry.target.classList.add("show");
@@ -113,7 +112,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-/* Card hover highlights */
+/* CARD HOVER EFFECT */
 document.querySelectorAll(".project-card").forEach(card => {
   card.addEventListener("mousemove", e => {
     const rect = card.getBoundingClientRect();
@@ -123,6 +122,27 @@ document.querySelectorAll(".project-card").forEach(card => {
     card.style.setProperty('--y', `${y}px`);
   });
 });
+
+/* FETCH ROBLOX VISITS */
+async function fetchVisits() {
+  const cards = document.querySelectorAll('.project-card');
+  let totalVisits = 0;
+  for (let card of cards) {
+    const gameId = card.dataset.gameId;
+    try {
+      const response = await fetch(`https://games.roblox.com/v1/games?universeIds=${gameId}`);
+      const data = await response.json();
+      const visits = data.data[0]?.visits || 0;
+      card.querySelector(".visit-count").textContent = visits.toLocaleString();
+      totalVisits += visits;
+    } catch(e) {
+      card.querySelector(".visit-count").textContent = "N/A";
+    }
+  }
+  document.getElementById("total-visits").textContent = totalVisits.toLocaleString() + "+";
+}
+
+fetchVisits();
 </script>
 
 </body>
