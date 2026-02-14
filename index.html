@@ -12,11 +12,9 @@
 
 <body>
 
-<!-- COSMIC NEBULA + PARTICLES -->
 <div id="nebula-background"></div>
 <div id="particles-js"></div>
 
-<!-- NAVIGATION -->
 <nav>
   <div class="logo">JD</div>
   <div class="nav-links">
@@ -26,27 +24,23 @@
   </div>
 </nav>
 
-<!-- MAIN WRAPPER -->
 <div class="wrapper">
 
-  <!-- HERO SECTION -->
   <section class="hero">
     <h1 id="marble-text">Jayden's Portfolio</h1>
     <p class="subtitle">Development • Legal Assistance • Business Professional</p>
 
     <div class="stats-card reveal">
       <p>Total Roblox Visits</p>
-      <p class="stat-number">210M+</p>
+      <p class="stat-number" id="total-visits">210M+</p>
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
   <section id="about" class="section reveal">
     <h2>About</h2>
     <p>I build immersive systems, provide legal assistance, and create professional business experiences.</p>
   </section>
 
-  <!-- PROJECTS SECTION -->
   <section id="projects" class="section reveal">
     <h2>Projects</h2>
 
@@ -89,7 +83,7 @@
           Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder - 
           3d Modeling as well, mid-long term developer
         </p>
-        <p class="visits">Visits: --</p>
+        <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
         <div class="buttons">
           <a href="#" target="_blank">Play</a>
           <a href="#" target="_blank">Group</a>
@@ -99,7 +93,6 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
   <section id="contact" class="section reveal">
     <h2>Contact</h2>
     <p>Email: youremail@example.com</p>
@@ -108,7 +101,8 @@
 </div>
 
 <script>
-/* RESET SCROLL & PAGE LOAD ANIMATION */
+
+/* RESET SCROLL */
 window.onbeforeunload = function () { window.scrollTo(0,0); };
 
 /* COSMIC BACKGROUND INTERACTION */
@@ -139,49 +133,48 @@ particlesJS("particles-js", {
 /* SCROLL REVEAL */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("show");
+    if(entry.isIntersecting) entry.target.classList.add("show");
   });
 },{ threshold: 0.15 });
-
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-/* AUTO THUMBNAIL + VISITS FETCH */
+/* HELPER: FORMAT VISITS */
+function formatNumber(num){
+  if(num >= 1_000_000_000) return (num/1_000_000_000).toFixed(1)+"B";
+  if(num >= 1_000_000) return (num/1_000_000).toFixed(1)+"M";
+  if(num >= 1_000) return (num/1_000).toFixed(1)+"K";
+  return num;
+}
+
+/* SETUP GAME CARDS WITH THUMBNAILS & VISITS */
 async function setupGameCard(placeId, elementId){
   const card = document.getElementById(elementId);
   const img = card.querySelector(".game-thumb");
   const visitSpan = card.querySelector(".visit-count");
 
   try {
-    const thumbRes = await fetch(
-      `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${placeId}&size=512x512&format=Png`
-    );
+    // GET THUMBNAIL
+    const thumbRes = await fetch(`https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${placeId}&size=512x512&format=Png`);
     const thumbData = await thumbRes.json();
     img.src = thumbData.data[0].imageUrl;
 
-    const visitRes = await fetch(
-      `https://games.roblox.com/v1/games/multiget-place-details?placeIds=${placeId}`
-    );
+    // GET VISITS
+    const visitRes = await fetch(`https://games.roblox.com/v1/games/multiget-place-details?placeIds=${placeId}`);
     const visitData = await visitRes.json();
     const visits = visitData.data[0].visitCount;
 
-    if(visitSpan){
-      if(visits >= 1_000_000_000)
-        visitSpan.textContent = (visits/1_000_000_000).toFixed(1)+"B";
-      else if(visits >= 1_000_000)
-        visitSpan.textContent = (visits/1_000_000).toFixed(1)+"M";
-      else if(visits >= 1_000)
-        visitSpan.textContent = (visits/1_000).toFixed(1)+"K";
-      else visitSpan.textContent = visits;
-    }
+    if(visitSpan) visitSpan.textContent = formatNumber(visits);
 
-  }catch{
+  }catch(err){
     if(visitSpan) visitSpan.textContent = "N/A";
+    console.error("Error fetching Roblox data:", err);
   }
 }
 
 /* SETUP CARDS */
 setupGameCard("509062192","project-realism");
 setupGameCard("125723653259639","drill-digging");
+
 </script>
 
 </body>
