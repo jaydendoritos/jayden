@@ -104,8 +104,8 @@ nav {
   position:relative;
   z-index:1;
   text-align:center;
-  transition: all 0.3s ease;
   overflow:hidden;
+  transition: all 0.3s ease;
 }
 .stats-card:hover {
   transform:translateY(-6px) scale(1.03);
@@ -157,24 +157,19 @@ nav {
   border-radius:50%;
   pointer-events:none;
   transform:translate(-50%,-50%);
-  transition: all 0.2s ease;
+  opacity:0;
+  transition: transform 0.15s ease, opacity 0.25s ease;
 }
 
-.card:hover {
-  transform:translateY(-6px) scale(1.02) rotateZ(-0.5deg);
-  border-color:#7c0a2a;
-  box-shadow:0 0 30px #7c0a2a,0 0 60px #9b59b6;
+.card:hover .hover-glow,
+.stats-card:hover .hover-glow {
+  opacity:1;
 }
+
+.card:hover { transform:translateY(-6px) scale(1.02) rotateZ(-0.5deg); border-color:#7c0a2a; box-shadow:0 0 30px #7c0a2a,0 0 60px #9b59b6; }
 
 a { color:#9b59b6; }
 
 /* Scroll reveal */
-.reveal {
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 0.8s ease;
-}
-.reveal.show {
-  opacity:1;
-  transform:translateY(0);
-}
+.reveal { opacity:0; transform:translateY(40px); transition:all 0.8s ease; }
+.reveal.show { opacity:1; transform:translateY(0); }
