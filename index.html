@@ -89,6 +89,9 @@
 </div>
 
 <script>
+/* RESET SCROLL ON REFRESH */
+window.onbeforeunload = function () { window.scrollTo(0,0); };
+
 /* PARTICLES */
 particlesJS("particles-js", {
   particles: {
@@ -117,14 +120,14 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 document.querySelectorAll(".project-card").forEach(card => {
   card.addEventListener("mousemove", e => {
     const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left - 70;
-    const y = e.clientY - rect.top - 70;
+    const x = e.clientX - rect.left - 90;
+    const y = e.clientY - rect.top - 90;
     card.style.setProperty("--x", x + "px");
     card.style.setProperty("--y", y + "px");
   });
   card.addEventListener("mouseleave", () => {
-    card.style.setProperty("--x", "-140px");
-    card.style.setProperty("--y", "-140px");
+    card.style.setProperty("--x", "-180px");
+    card.style.setProperty("--y", "-180px");
   });
 });
 
