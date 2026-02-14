@@ -48,10 +48,12 @@
       <div class="card reveal">
         <h3>Gaming Builds</h3>
         <p>Creative mechanics and polished systems.</p>
+        <div class="hover-glow"></div>
       </div>
       <div class="card reveal">
         <h3>Web Applications</h3>
         <p>High-performance interfaces and tools.</p>
+        <div class="hover-glow"></div>
       </div>
     </div>
   </section>
@@ -65,7 +67,7 @@
 </div>
 
 <script>
-/* ====== Particles + Parallax ====== */
+/* ====== Particles Background ====== */
 particlesJS("particles-js", {
   particles: {
     number: { value: 100 },
@@ -82,14 +84,14 @@ particlesJS("particles-js", {
   }
 });
 
-/* tiny parallax effect */
+/* Tiny parallax for particles */
 document.addEventListener("mousemove", e => {
   const px = e.clientX / window.innerWidth * .6;
   const py = e.clientY / window.innerHeight * .6;
   document.getElementById("particles-js").style.transform = `translate(${px}%,${py}%)`;
 });
 
-/* ====== Scroll Reveal ====== */
+/* Scroll Reveal */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add("show");
@@ -99,33 +101,25 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-/* ====== Roblox Visits Fetch ====== */
+/* Roblox Visits */
 (async () => {
   const placeIds = [
-    125723653259639,
-    509062192,
-    4475184011,
-    5361853069,
-    16315665693,
-    7845941294,
-    885450884,
-    4923930780
+    125723653259639, 509062192, 4475184011, 5361853069,
+    16315665693, 7845941294, 885450884, 4923930780
   ];
-
   let total = 0;
 
   async function getUniverse(pid) {
     try {
       const r = await fetch(`https://api.roblox.com/universes/get-universe-containing-place?placeid=${pid}`);
       const data = await r.json();
-      if (data && data.UniverseId) return data.UniverseId;
-    } catch {}
-    return null;
+      return data?.UniverseId ?? null;
+    } catch { return null; }
   }
 
-  async function getVisits(universeId) {
+  async function getVisits(uid) {
     try {
-      const r = await fetch(`https://games.roproxy.com/v2/games?universeIds=${universeId}`);
+      const r = await fetch(`https://games.roproxy.com/v2/games?universeIds=${uid}`);
       const j = await r.json();
       return j?.data?.[0]?.visitCount ?? 0;
     } catch { return 0; }
@@ -138,6 +132,18 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
   document.getElementById("visits-count").textContent = total.toLocaleString();
 })();
+
+/* Hover Glow Effect for Cards */
+document.querySelectorAll(".card").forEach(card => {
+  const glow = card.querySelector(".hover-glow");
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    glow.style.left = `${x}px`;
+    glow.style.top = `${y}px`;
+  });
+});
 </script>
 
 </body>
