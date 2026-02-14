@@ -1,159 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Jayden's Portfolio</title>
+<meta charset="UTF-8" />
+<title>Jayden's Portfolio</title>
 
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
 
-  <!-- Particles.js for stars -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 
 <body>
-  <div id="nebula-background"></div>
-  <div id="particles-js"></div>
 
-  <nav>
-    <div class="logo">JD</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<div id="nebula-background"></div>
+<div id="particles-js"></div>
 
-  <div class="wrapper">
-    <section class="hero">
-      <h1 id="marble-text">Jayden's Portfolio</h1>
-      <p class="subtitle">Development • Legal Assistance • Business Professional</p>
-
-      <div class="stats-card">
-        <p>Total Roblox Visits</p>
-        <p class="stat-number">210M+</p>
-      </div>
-    </section>
-
-    <section id="about" class="section reveal">
-      <h2>About</h2>
-      <p>I build immersive systems, provide legal assistance, and create professional business experiences.</p>
-    </section>
-
-    <section id="projects" class="section reveal">
-      <h2>Projects</h2>
-
-      <div class="project-grid">
-        <!-- Updated Project Card -->
-        <div class="project-card" id="project-realism">
-          <img src="project-realism.jpg" alt="Project Realism | City-17" />
-          <h3>Project Realism | City-17</h3>
-          <p class="description">A high-fidelity roleplay experience in the City-17 universe.</p>
-          <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
-          <div class="buttons">
-            <a href="https://www.roblox.com/games/509062192/Project-Realism" target="_blank" rel="noopener">Play</a>
-            <a href="https://www.roblox.com/communities/2808906/The-Robine#!/about" target="_blank" rel="noopener">Group</a>
-          </div>
-        </div>
-
-        <!-- Placeholder cards -->
-        <div class="project-card">
-          <img src="game2.jpg" alt="Game 2" />
-          <h3>Game Title 2</h3>
-          <p class="description">Brief description of the game.</p>
-          <p class="visits">Visits: 30M</p>
-          <div class="buttons">
-            <a href="#">Play</a>
-            <a href="#">Group</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <img src="game3.jpg" alt="Game 3" />
-          <h3>Game Title 3</h3>
-          <p class="description">Brief description of the game.</p>
-          <p class="visits">Visits: 40M</p>
-          <div class="buttons">
-            <a href="#">Play</a>
-            <a href="#">Group</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section reveal">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    </section>
+<nav>
+  <div class="logo">JD</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
+</nav>
 
-  <script>
-    // Reset scroll on refresh
-    window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    };
+<div class="wrapper">
 
-    // Enhanced Cosmic Background Animation
-    const nebulaBg = document.getElementById("nebula-background");
+<section class="hero">
+  <h1 id="marble-text">Jayden's Portfolio</h1>
+  <p class="subtitle">Development • Legal Assistance • Business Professional</p>
 
-    // Track mouse position for subtle nebula movement
-    document.addEventListener("mousemove", (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 40; // wider movement
-      const y = (e.clientY / window.innerHeight - 0.5) * 40;
-      nebulaBg.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
-    });
+  <div class="stats-card">
+    <p>Total Roblox Visits</p>
+    <p class="stat-number">210M+</p>
+  </div>
+</section>
 
-    // Particles.js config for cosmic stars
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 140, density: { enable: true, value_area: 800 } },
-        color: { value: ["#6c2bd9", "#9b59b6", "#e74c3c", "#3498db", "#d1c4e9"] },
-        shape: { type: "circle" },
-        opacity: { value: 0.85, random: true, anim: { enable: true, speed: 0.4, opacity_min: 0.3, sync: false } },
-        size: { value: 2, random: true, anim: { enable: false } },
-        move: { enable: true, speed: 0.3, direction: "none", random: true, straight: false, out_mode: "out" },
-        line_linked: { enable: false }
-      },
-      interactivity: {
-        events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
-        modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
-      },
-      retina_detect: true
-    });
+<section id="about" class="section reveal">
+  <h2>About</h2>
+  <p>I build immersive systems, provide legal assistance, and create professional business experiences.</p>
+</section>
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          entry.target.classList.remove("show");
-        }
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+<section id="projects" class="section reveal">
+  <h2>Projects</h2>
 
-    // Roblox Visits API Fetch for Project Realism
-    async function fetchVisits() {
-      const gameId = "509062192";
-      const visitSpan = document.querySelector("#project-realism .visit-count");
+  <div class="project-grid">
 
-      try {
-        const response = await fetch(`https://games.roblox.com/v1/games/multiget-place-details?placeIds=${gameId}`);
-        if (!response.ok) throw new Error("Network error");
+    <!-- CARD 1 -->
+    <div class="project-card" id="project-realism">
+      <img src="city17.jpg" alt="Project Realism | City-17" />
+      <h3>Project Realism | City-17</h3>
+      <p class="description">
+        Long term builder and 3d modeler, morph development and divisional engineering
+      </p>
+      <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
+      <div class="buttons">
+        <a href="https://www.roblox.com/games/509062192/Project-Realism" target="_blank">Play</a>
+        <a href="https://www.roblox.com/communities/2808906/The-Robine#!/about" target="_blank">Group</a>
+      </div>
+    </div>
 
-        const data = await response.json();
-        if (data.data && data.data.length > 0) {
-          const visits = data.data[0].visitCount;
-          visitSpan.textContent = `${(visits / 1_000_000).toFixed(1)}M`;
-        } else {
-          visitSpan.textContent = "N/A";
-        }
-      } catch {
-        visitSpan.textContent = "N/A";
-      }
+    <!-- CARD 2 -->
+    <div class="project-card" id="drill-digging">
+      <img src="drill-digging.jpg" alt="Drill Digging Simulator" />
+      <h3>Drill Digging Simulator</h3>
+      <p class="description">
+        Project Manager, Community Manager, Lead Builder and 3d Modeler,
+        Legal and Financial Advisor
+      </p>
+      <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
+      <div class="buttons">
+        <a href="https://www.roblox.com/games/125723653259639/Drill-Digging-Simulator" target="_blank">Play</a>
+        <a href="https://www.roblox.com/communities/35592307/Arcadasi-Studios#!/about" target="_blank">Group</a>
+      </div>
+    </div>
+
+    <!-- CARD 3 (Placeholder) -->
+    <div class="project-card">
+      <img src="placeholder.jpg" alt="Coming Soon" />
+      <h3>Coming Soon</h3>
+      <p class="description">
+        Additional projects will be displayed here.
+      </p>
+      <p class="visits">Visits: --</p>
+      <div class="buttons">
+        <a href="#">Play</a>
+        <a href="#">Group</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="section reveal">
+  <h2>Contact</h2>
+  <p>Email: youremail@example.com</p>
+</section>
+
+</div>
+
+<script>
+
+/* RESET SCROLL */
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
+/* NEBULA INTERACTION */
+const nebula = document.getElementById("nebula-background");
+document.addEventListener("mousemove", e => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 40;
+  const y = (e.clientY / window.innerHeight - 0.5) * 40;
+  nebula.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+});
+
+/* PARTICLES */
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 160, density: { enable: true, value_area: 800 } },
+    color: { value: ["#9b59b6","#6c2bd9","#e74c3c","#3498db"] },
+    shape: { type: "circle" },
+    opacity: { value: 0.9, random: true },
+    size: { value: 2, random: true },
+    move: { enable: true, speed: 0.4, random: true },
+    line_linked: { enable: false }
+  },
+  interactivity: {
+    events: { onhover: { enable: true, mode: "repulse" } },
+    modes: { repulse: { distance: 100, duration: 0.4 } }
+  }
+});
+
+/* SCROLL REVEAL */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("show");
+  });
+},{ threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+/* VISIT FETCH FUNCTION */
+async function fetchVisits(placeId, elementId) {
+  const visitSpan = document.querySelector(`#${elementId} .visit-count`);
+  try {
+    const response = await fetch(
+      `https://games.roblox.com/v1/games/multiget-place-details?placeIds=${placeId}`
+    );
+    const data = await response.json();
+    const visits = data.data[0].visitCount;
+
+    if (visits >= 1_000_000_000) {
+      visitSpan.textContent = (visits / 1_000_000_000).toFixed(1) + "B";
+    } else if (visits >= 1_000_000) {
+      visitSpan.textContent = (visits / 1_000_000).toFixed(1) + "M";
+    } else if (visits >= 1_000) {
+      visitSpan.textContent = (visits / 1_000).toFixed(1) + "K";
+    } else {
+      visitSpan.textContent = visits;
     }
 
-    fetchVisits();
-  </script>
+  } catch {
+    visitSpan.textContent = "N/A";
+  }
+}
+
+/* FETCH BOTH GAMES */
+fetchVisits("509062192", "project-realism");
+fetchVisits("125723653259639", "drill-digging");
+
+</script>
+
 </body>
 </html>
