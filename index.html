@@ -71,12 +71,7 @@ particlesJS("particles-js", {
     number: { value: 100 },
     size: { value: 3 },
     color: { value: ["#6c2bd9", "#7c0a2a"] },
-    line_linked: {
-      enable: true,
-      distance: 160,
-      color: "#6c2bd9",
-      opacity: 0.45
-    },
+    line_linked: { enable: true, distance: 160, color: "#6c2bd9", opacity: 0.45 },
     move: { enable: true, speed: 2, out_mode: "out" }
   },
   interactivity: {
@@ -133,9 +128,7 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
       const r = await fetch(`https://games.roproxy.com/v2/games?universeIds=${universeId}`);
       const j = await r.json();
       return j?.data?.[0]?.visitCount ?? 0;
-    } catch {
-      return 0;
-    }
+    } catch { return 0; }
   }
 
   for (let pid of placeIds) {
