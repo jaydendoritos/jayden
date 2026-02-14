@@ -45,48 +45,30 @@
 
   <div class="project-grid">
 
-    <!-- CARD 1 -->
-    <div class="project-card" id="project-realism">
-      <img class="game-thumb" />
+    <div class="project-card">
       <h3>Project Realism | City-17</h3>
       <p class="description">
         Long term builder and 3d modeler, morph development and divisional engineering
       </p>
-      <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
-      <div class="buttons">
-        <a href="https://www.roblox.com/games/509062192/Project-Realism" target="_blank">Play</a>
-        <a href="https://www.roblox.com/communities/2808906/The-Robine#!/about" target="_blank">Group</a>
-      </div>
+      <p class="visits">Visits: 509062192</p>
     </div>
 
-    <!-- CARD 2 -->
-    <div class="project-card" id="drill-digging">
-      <img class="game-thumb" />
+    <div class="project-card">
       <h3>Drill Digging Simulator</h3>
       <p class="description">
         Project Manager, Community Manager, Lead Builder and 3d Modeler,
         Legal and Financial Advisor
       </p>
-      <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
-      <div class="buttons">
-        <a href="https://www.roblox.com/games/125723653259639/Drill-Digging-Simulator" target="_blank">Play</a>
-        <a href="https://www.roblox.com/communities/35592307/Arcadasi-Studios#!/about" target="_blank">Group</a>
-      </div>
+      <p class="visits">Visits: 125723653259639</p>
     </div>
 
-    <!-- CARD 3 -->
-    <div class="project-card" id="reign-royales">
-      <img class="game-thumb" />
+    <div class="project-card">
       <h3>Reign of Royales</h3>
       <p class="description">
-        Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder - 
+        Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder -
         3d Modeling as well, mid-long term developer
       </p>
       <p class="visits">Visits: --</p>
-      <div class="buttons">
-        <a href="#">Play</a>
-        <a href="#">Group</a>
-      </div>
     </div>
 
   </div>
@@ -101,10 +83,13 @@
 
 <script>
 
-/* Scroll Reset */
-window.onbeforeunload = () => window.scrollTo(0,0);
+/* PAGE LOAD ANIMATION */
+window.addEventListener("load", () => {
+  window.scrollTo(0, 0);
+  document.body.classList.add("loaded");
+});
 
-/* Background Movement */
+/* BACKGROUND MOVEMENT */
 const nebula = document.getElementById("nebula-background");
 document.addEventListener("mousemove", e => {
   const x = (e.clientX / window.innerWidth - 0.5) * 40;
@@ -112,10 +97,10 @@ document.addEventListener("mousemove", e => {
   nebula.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
 });
 
-/* Particles */
+/* PARTICLES */
 particlesJS("particles-js", {
   particles: {
-    number: { value: 160 },
+    number: { value: 170 },
     color: { value: ["#9b59b6","#6c2bd9","#3498db"] },
     shape: { type: "circle" },
     opacity: { value: 0.8, random: true },
@@ -125,12 +110,14 @@ particlesJS("particles-js", {
   }
 });
 
-/* Scroll Reveal */
+/* SCROLL REVEAL */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("show");
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
   });
-},{ threshold: 0.15 });
+}, { threshold: 0.15 });
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
