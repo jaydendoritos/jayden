@@ -32,7 +32,7 @@
 
     <div class="stats-card reveal">
       <p>Total Roblox Visits</p>
-      <p class="stat-number" id="total-visits">210M+</p>
+      <p class="stat-number" id="total-visits">Loading...</p>
     </div>
   </section>
 
@@ -77,13 +77,13 @@
 
       <!-- CARD 3 -->
       <div class="project-card reveal" id="reign-royales">
-        <img class="game-thumb" />
+        <img class="game-thumb" src="https://via.placeholder.com/512" />
         <h3>Reign of Royales</h3>
         <p class="description">
           Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder - 
           3d Modeling as well, mid-long term developer
         </p>
-        <p class="visits">Visits: <span class="visit-count">Loading...</span></p>
+        <p class="visits">Visits: --</p>
         <div class="buttons">
           <a href="#" target="_blank">Play</a>
           <a href="#" target="_blank">Group</a>
@@ -146,28 +146,29 @@ function formatNumber(num){
   return num;
 }
 
-/* SETUP GAME CARDS WITH THUMBNAILS & VISITS */
+/* FETCH ROBLOX DATA */
 async function setupGameCard(placeId, elementId){
   const card = document.getElementById(elementId);
   const img = card.querySelector(".game-thumb");
   const visitSpan = card.querySelector(".visit-count");
 
   try {
-    // GET THUMBNAIL
+    // Fetch thumbnail
     const thumbRes = await fetch(`https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${placeId}&size=512x512&format=Png`);
     const thumbData = await thumbRes.json();
-    img.src = thumbData.data[0].imageUrl;
+    if(thumbData.data && thumbData.data[0] && thumbData.data[0].imageUrl) img.src = thumbData.data[0].imageUrl;
 
-    // GET VISITS
+    // Fetch visits
     const visitRes = await fetch(`https://games.roblox.com/v1/games/multiget-place-details?placeIds=${placeId}`);
     const visitData = await visitRes.json();
-    const visits = visitData.data[0].visitCount;
+    if(visitData.data && visitData.data[0]) {
+      const visits = visitData.data[0].visitCount;
+      if(visitSpan) visitSpan.textContent = formatNumber(visits);
+    }
 
-    if(visitSpan) visitSpan.textContent = formatNumber(visits);
-
-  }catch(err){
+  } catch(err){
     if(visitSpan) visitSpan.textContent = "N/A";
-    console.error("Error fetching Roblox data:", err);
+    console.error("Roblox API error:", err);
   }
 }
 
