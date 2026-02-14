@@ -98,6 +98,8 @@
 </div>
 
 <script>
+/* FADE IN BODY ON LOAD */
+window.addEventListener("load", () => { document.body.classList.add("loaded"); });
 
 /* RESET SCROLL ON REFRESH */
 window.onbeforeunload = function () { window.scrollTo(0, 0); };
@@ -131,7 +133,6 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.15 });
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
 </script>
 
 </body>
