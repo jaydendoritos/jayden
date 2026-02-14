@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Jayden's Portfolio</title>
-
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
@@ -31,8 +29,7 @@
 
     <div class="stats-card reveal">
       <h3>Total Roblox Visits</h3>
-      <p id="visits-count" class="stat-number">210M+</p>
-      <div class="hover-glow"></div>
+      <p class="stat-number">210M+</p>
     </div>
   </section>
 
@@ -45,17 +42,21 @@
   <!-- PROJECTS -->
   <section id="projects" class="section reveal">
     <h2>Projects</h2>
-    <div class="cards">
-      <div class="card reveal">
-        <h3>Gaming Builds</h3>
-        <p>Creative mechanics and polished systems.</p>
-        <div class="hover-glow"></div>
+    <div class="project-cards">
+      <!-- Example Roblox game boxes -->
+      <div class="project-card">
+        <h3>Game Name 1</h3>
+        <p>Visits: 45M</p>
       </div>
-      <div class="card reveal">
-        <h3>Web Applications</h3>
-        <p>High-performance interfaces and tools.</p>
-        <div class="hover-glow"></div>
+      <div class="project-card">
+        <h3>Game Name 2</h3>
+        <p>Visits: 32M</p>
       </div>
+      <div class="project-card">
+        <h3>Game Name 3</h3>
+        <p>Visits: 12M</p>
+      </div>
+      <!-- Add more by copying project-card div -->
     </div>
   </section>
 
@@ -68,68 +69,47 @@
 </div>
 
 <script>
-/* ====== Particles Background ====== */
+/* ====== Fluid Interactive Particles ====== */
 particlesJS("particles-js", {
   particles: {
-    number: { value: 100 },
+    number: { value: 120 },
     size: { value: 3 },
-    color: { value: ["#6c2bd9", "#7c0a2a"] },
-    line_linked: { enable: true, distance: 160, color: "#6c2bd9", opacity: 0.45 },
-    move: { enable: true, speed: 2, out_mode: "out" }
+    color: { value: ["#6c2bd9","#7c0a2a","#9b59b6"] },
+    line_linked: { enable:true, distance:150, color:"#6c2bd9", opacity:0.35 },
+    move: { enable:true, speed:2, out_mode:"out" }
   },
   interactivity: {
-    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: false } }
+    events: { onhover: { enable:true, mode:"grab" }, onclick:{enable:false} },
+    modes: { grab:{distance:200, line_linked:{opacity:0.5}} }
   }
 });
 
-/* Smooth cursor-follow parallax for particles */
-let mouseX = 0, mouseY = 0;
-let currentX = 0, currentY = 0;
-const particlesEl = document.getElementById("particles-js");
-
-document.addEventListener("mousemove", e => {
-  mouseX = e.clientX - window.innerWidth / 2;
-  mouseY = e.clientY - window.innerHeight / 2;
-});
-
-function animateParticles() {
-  currentX += (mouseX - currentX) * 0.05; // easing for smooth lag
-  currentY += (mouseY - currentY) * 0.05;
-  particlesEl.style.transform = `translate(${currentX * 0.05}px, ${currentY * 0.05}px)`;
-  requestAnimationFrame(animateParticles);
-}
-animateParticles();
-
-/* Marble text reacts to cursor */
+/* Marble Text Cursor Interaction */
 document.addEventListener("mousemove", e => {
   const marble = document.getElementById("marble-text");
   const rect = marble.getBoundingClientRect();
   const dx = e.clientX - (rect.left + rect.width / 2);
   const dy = e.clientY - (rect.top + rect.height / 2);
-  marble.style.backgroundPosition = `${50 + dx/50}% ${50 + dy/50}%`;
+  marble.style.backgroundPosition = `${50 + dx/80}% ${50 + dy/80}%`;
 });
 
-/* Scroll Reveal */
+/* Scroll Reveal Animation */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("show");
+    if(entry.isIntersecting) entry.target.classList.add("show");
     else entry.target.classList.remove("show");
   });
 }, { threshold: 0.2 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-/* Smooth Hover Glow for Cards and Stats Card */
-document.querySelectorAll(".card, .stats-card").forEach(card => {
-  const glow = card.querySelector(".hover-glow");
+/* Optional: Hover highlight for project cards */
+document.querySelectorAll(".project-card").forEach(card => {
   card.addEventListener("mousemove", e => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    glow.style.opacity = 1;
-    glow.style.transform = `translate(${x}px, ${y}px)`;
-  });
-  card.addEventListener("mouseleave", () => {
-    glow.style.opacity = 0;
+    card.style.setProperty('--x', `${x}px`);
+    card.style.setProperty('--y', `${y}px`);
   });
 });
 </script>
