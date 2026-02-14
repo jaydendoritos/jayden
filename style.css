@@ -1,34 +1,21 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family:'Inter',sans-serif;
-  background:#050012;
+  background:#070014;
   color:white;
   overflow-x:hidden;
 }
 
-/* CINEMATIC NEBULA */
-#nebula-layer {
+/* Royal Galaxy Background */
+#nebula-background {
   position:fixed;
   inset:0;
   background:
-    radial-gradient(circle at 30% 40%, rgba(120,0,255,0.6), transparent 40%),
-    radial-gradient(circle at 70% 60%, rgba(255,0,150,0.4), transparent 40%),
-    radial-gradient(circle at center, #0a0025 0%, #030010 100%);
-  animation: slowDrift 30s infinite alternate ease-in-out;
-  z-index:-4;
-}
-
-@keyframes slowDrift {
-  0% { background-position: 30% 40%, 70% 60%, center; }
-  100% { background-position: 40% 50%, 60% 50%, center; }
-}
-
-/* STAR FIELD */
-#star-layer {
-  position:fixed;
-  inset:0;
-  background:url("https://www.transparenttextures.com/patterns/stardust.png");
-  opacity:0.15;
+    radial-gradient(circle at 30% 40%, rgba(108,43,217,0.6), transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(155,89,182,0.6), transparent 40%),
+    radial-gradient(circle at center, #0a001f 0%, #050010 100%);
+  background-size:150% 150%;
+  transition:background-position 0.2s ease;
   z-index:-3;
 }
 
@@ -39,7 +26,23 @@ body {
   z-index:-2;
 }
 
-/* HERO */
+/* Navigation */
+nav {
+  width:100%;
+  padding:30px 80px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.logo { font-weight:900; font-size:1.7rem; }
+
+.nav-links a {
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+}
+
+/* Hero */
 .hero {
   min-height:60vh;
   display:flex;
@@ -53,20 +56,20 @@ body {
   font-weight:900;
   background:linear-gradient(120deg,#ffffff,#dcdcdc,#a3a3a3);
   background-size:300% 300%;
-  animation: marbleShift 8s infinite ease;
+  animation:marbleShift 8s infinite ease;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
 @keyframes marbleShift {
-  0% { background-position:0% 50%; }
-  50% { background-position:100% 50%; }
-  100% { background-position:0% 50%; }
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
 .subtitle { font-size:2rem; color:#ccc; margin-top:10px; }
 
-/* STATS CARD */
+/* Stats Card */
 .stats-card {
   margin-top:30px;
   padding:50px 70px;
@@ -74,47 +77,44 @@ body {
   background:rgba(0,0,0,0.4);
   border:2px solid #6c2bd9;
   backdrop-filter:blur(20px);
-  box-shadow:0 0 40px rgba(108,43,217,0.4);
 }
 
-.stat-number {
-  font-size:3rem;
-  font-weight:800;
-}
+.stat-number { font-size:3rem; font-weight:800; }
 
-/* PROJECTS */
+/* Projects */
 .section { padding:200px 20px; text-align:center; }
+
 .project-grid {
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:60px;
+  grid-template-columns:repeat(3,1fr);
+  gap:50px;
   justify-items:center;
 }
 
 .project-card {
-  width:500px;
-  padding:30px;
-  border-radius:30px;
+  width:460px;
+  padding:25px;
+  border-radius:25px;
   background:rgba(0,0,0,0.35);
   border:2px solid #4a2a63;
-  backdrop-filter:blur(25px);
+  backdrop-filter:blur(20px);
   transition:0.3s ease;
 }
 
 .project-card:hover {
-  transform:translateY(-8px) scale(1.03);
-  box-shadow:0 0 50px rgba(155,89,182,0.6);
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 0 40px rgba(155,89,182,0.5);
 }
 
 .project-card img {
   width:100%;
-  border-radius:20px;
-  margin-bottom:20px;
+  border-radius:15px;
+  margin-bottom:15px;
 }
 
 .buttons a {
-  padding:12px 20px;
-  border-radius:14px;
+  padding:10px 18px;
+  border-radius:12px;
   border:1px solid #6c2bd9;
   text-decoration:none;
   color:white;
@@ -123,5 +123,5 @@ body {
 }
 
 .buttons a:hover {
-  background:linear-gradient(135deg,#6c2bd9,#ff007a);
+  background:linear-gradient(135deg,#6c2bd9,#7c0a2a);
 }
