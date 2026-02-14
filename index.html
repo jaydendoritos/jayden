@@ -31,7 +31,7 @@
 
     <div class="stats-card reveal">
       <h3>Total Roblox Visits</h3>
-      <p id="visits-count" class="stat-number">…calculating</p>
+      <p id="visits-count" class="stat-number">210M+</p>
     </div>
   </section>
 
@@ -107,38 +107,6 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-/* Roblox Visits */
-(async () => {
-  const placeIds = [
-    125723653259639, 509062192, 4475184011, 5361853069,
-    16315665693, 7845941294, 885450884, 4923930780
-  ];
-  let total = 0;
-
-  async function getUniverse(pid) {
-    try {
-      const r = await fetch(`https://api.roblox.com/universes/get-universe-containing-place?placeid=${pid}`);
-      const data = await r.json();
-      return data?.UniverseId ?? null;
-    } catch { return null; }
-  }
-
-  async function getVisits(uid) {
-    try {
-      const r = await fetch(`https://games.roproxy.com/v2/games?universeIds=${uid}`);
-      const j = await r.json();
-      return j?.data?.[0]?.visitCount ?? 0;
-    } catch { return 0; }
-  }
-
-  for (let pid of placeIds) {
-    const uid = await getUniverse(pid);
-    if (uid) total += await getVisits(uid);
-  }
-
-  document.getElementById("visits-count").textContent = total.toLocaleString();
-})();
 
 /* Hover Glow Effect for Cards */
 document.querySelectorAll(".card").forEach(card => {
