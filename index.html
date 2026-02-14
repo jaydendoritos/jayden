@@ -26,7 +26,7 @@
 
   <!-- HERO -->
   <section class="hero reveal">
-    <h1>Jayden's Portfolio</h1>
+    <h1 id="marble-text">Jayden's Portfolio</h1>
     <p class="subtitle">Development • Legal Assistance • Business Professional</p>
 
     <div class="stats-card reveal">
@@ -89,6 +89,13 @@ document.addEventListener("mousemove", e => {
   const px = e.clientX / window.innerWidth * .6;
   const py = e.clientY / window.innerHeight * .6;
   document.getElementById("particles-js").style.transform = `translate(${px}%,${py}%)`;
+
+  // Marble text interactive effect
+  const marble = document.getElementById("marble-text");
+  const rect = marble.getBoundingClientRect();
+  const dx = e.clientX - (rect.left + rect.width / 2);
+  const dy = e.clientY - (rect.top + rect.height / 2);
+  marble.style.backgroundPosition = `${50 + dx/50}% ${50 + dy/50}%`;
 });
 
 /* Scroll Reveal */
