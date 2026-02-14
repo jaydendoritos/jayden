@@ -1,9 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+* { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 
 body {
@@ -42,10 +37,7 @@ nav {
   justify-content: space-between;
 }
 
-.logo {
-  font-weight: 900;
-  font-size: 1.7rem;
-}
+.logo { font-weight: 900; font-size: 1.7rem; }
 
 .nav-links a {
   margin-left: 30px;
@@ -55,9 +47,7 @@ nav {
   transition: 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #9b59b6;
-}
+.nav-links a:hover { color: #9b59b6; }
 
 /* HERO */
 .hero {
@@ -66,6 +56,7 @@ nav {
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
+  text-align: center;
 }
 
 #marble-text {
@@ -101,10 +92,7 @@ nav {
   text-align: center;
 }
 
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
+.stat-number { font-size: 2.5rem; font-weight: 700; }
 
 /* SECTIONS */
 .section {
@@ -115,10 +103,7 @@ nav {
   transition: 0.8s ease;
 }
 
-.section.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+.section.show { opacity: 1; transform: translateY(0); }
 
 .section h2 {
   font-size: 3rem;
@@ -138,7 +123,7 @@ nav {
 /* PROJECT CARD */
 .project-card {
   width: 460px;
-  height: 580px;
+  min-height: 580px;
   padding: 25px;
   border-radius: 25px;
   background: rgba(0,0,0,0.35);
@@ -148,6 +133,7 @@ nav {
   flex-direction: column;
   align-items: center;
   transition: 0.3s ease;
+  text-align: center;
 }
 
 .project-card:hover {
@@ -167,29 +153,24 @@ nav {
 .project-card h3 {
   font-size: 1.8rem;
   margin-bottom: 10px;
-  text-align: center;
 }
 
 .description {
   font-size: 1.1rem;
-  text-align: center;
   margin-bottom: 10px;
 }
 
-.visits {
+.visits, .ccu {
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-.ccu {
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #f1c40f;
-}
+.ccu { color: #f1c40f; }
 
 .buttons {
   display: flex;
   gap: 12px;
+  justify-content: center;
 }
 
 .buttons a {
