@@ -32,6 +32,7 @@
     <div class="stats-card reveal">
       <h3>Total Roblox Visits</h3>
       <p id="visits-count" class="stat-number">210M+</p>
+      <div class="hover-glow"></div>
     </div>
   </section>
 
@@ -108,15 +109,21 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-/* Hover Glow Effect for Cards */
-document.querySelectorAll(".card").forEach(card => {
+/* Smooth Hover Glow for Cards and Stats Card */
+document.querySelectorAll(".card, .stats-card").forEach(card => {
   const glow = card.querySelector(".hover-glow");
+
   card.addEventListener("mousemove", e => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    glow.style.left = `${x}px`;
-    glow.style.top = `${y}px`;
+
+    glow.style.opacity = 1;
+    glow.style.transform = `translate(${x}px, ${y}px)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    glow.style.opacity = 0;
   });
 });
 </script>
