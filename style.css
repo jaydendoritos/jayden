@@ -254,3 +254,32 @@ body.loaded #loader {
   pointer-events: none;
   transition: opacity 0.6s ease;
 }
+/* ===== PAGE LOADER ===== */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #0a001f 0%, #050010 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 70px;
+  height: 70px;
+  border: 6px solid rgba(255,255,255,0.08);
+  border-top: 6px solid #9b59b6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+body.loaded #loader {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
