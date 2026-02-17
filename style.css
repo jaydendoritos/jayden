@@ -51,12 +51,13 @@ nav {
 
 /* HERO */
 .hero {
-  min-height: 50vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
+  justify-content: center;
   text-align: center;
+  padding-top: 40px;
 }
 
 #marble-text {
@@ -97,7 +98,7 @@ nav {
 /* SECTIONS */
 .section {
   max-width: 1500px;
-  padding: 150px 20px;
+  padding: 140px 20px;
   opacity: 0;
   transform: translateY(40px);
   transition: 0.8s ease;
@@ -107,9 +108,14 @@ nav {
 
 .section.show { opacity: 1; transform: translateY(0); }
 
-.section h2 { font-size: 3rem; margin-bottom: 35px; text-align: center; }
+.section h2 { font-size: 3rem; margin-bottom: 35px; }
 
-.section-text { font-size: 1.3rem; margin-top: 20px; }
+.section-text {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
 /* PROJECT GRID */
 .project-grid {
@@ -182,7 +188,8 @@ nav {
   background: linear-gradient(135deg,#6c2bd9,#7c0a2a);
   box-shadow: 0 0 20px #6c2bd9;
 }
-/* ===== COOL NEBULA LOADER ===== */
+
+/* ===== NEBULA JD LOADER ===== */
 #loader {
   position: fixed;
   inset: 0;
@@ -253,33 +260,4 @@ body.loaded #loader {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.6s ease;
-}
-/* ===== PAGE LOADER ===== */
-#loader {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at center, #0a001f 0%, #050010 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.spinner {
-  width: 70px;
-  height: 70px;
-  border: 6px solid rgba(255,255,255,0.08);
-  border-top: 6px solid #9b59b6;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-body.loaded #loader {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
 }
