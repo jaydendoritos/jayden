@@ -44,6 +44,112 @@
   </div>
 </section>
 
+
+
+<!-- ABOUT -->
+<section id="about" class="section reveal">
+  <h2>About Me</h2>
+
+  <div class="about-layout">
+
+    <div class="about-sidebar">
+
+      <div class="info-card">
+        <h3>Profile</h3>
+        <p>Jayden / goo</p>
+        <p>Developer • 3D Modeler • Builder</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Contact</h3>
+
+        <div class="contact-buttons">
+
+          <a href="https://www.roblox.com/users/483821130/profile" target="_blank" class="contact-btn roblox">
+            <img src="robloxlogo.png" alt="Roblox">
+            <span>Roblox Profile</span>
+            <div class="shine"></div>
+          </a>
+
+          <a href="https://discord.com/users/1097688621286436914" target="_blank" class="contact-btn discord">
+            <img src="discordlogo.jpg" alt="Discord">
+            <span>Discord Profile</span>
+            <div class="shine"></div>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="about-main">
+      <p>
+        Hello! I am Jayden / goo, an experienced developer specializing in 3D modeling and building.
+        I have worked across FiveM / GTA5 asset development and Roblox experiences, contributing to
+        million-member groups and games that have peaked at nearly <strong>50,000 active players</strong>.
+      </p>
+
+      <p>
+        Beyond development, I specialize in business strategy, marketing, and sales. I analyze game
+        performance and player behavior to improve retention and revenue outcomes.
+      </p>
+
+      <p>
+        I also provide legal advisory support, including drafting cease-and-desists, copyright claims,
+        contracts, and other protective documentation.
+      </p>
+
+      <p>
+        I look forward to helping turn your greatest ideas into a successful reality.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+<script>
+window.onbeforeunload = function () { window.scrollTo(0, 0); };
+
+const nebula = document.getElementById("nebula-background");
+document.addEventListener("mousemove", e => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 50;
+  const y = (e.clientY / window.innerHeight - 0.5) * 50;
+  nebula.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+});
+
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 180 },
+    color: { value: ["#9b59b6","#6c2bd9","#e74c3c","#3498db"] },
+    shape: { type: "circle" },
+    opacity: { value: 0.9, random: true },
+    size: { value: 2, random: true },
+    move: { enable: true, speed: 0.4, random: true },
+    line_linked: { enable: false }
+  },
+  interactivity: {
+    events: { onhover: { enable: true, mode: "repulse" } },
+    modes: { repulse: { distance: 120, duration: 0.4 } }
+  }
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("show");
+  });
+},{ threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
+</script>
+
+</body>
+</html>
 <!-- PROJECTS -->
 <section id="projects" class="section reveal">
   <h2>Projects</h2>
@@ -151,108 +257,3 @@
 
   </div>
 </section>
-
-<!-- ABOUT -->
-<section id="about" class="section reveal">
-  <h2>About Me</h2>
-
-  <div class="about-layout">
-
-    <div class="about-sidebar">
-
-      <div class="info-card">
-        <h3>Profile</h3>
-        <p>Jayden / goo</p>
-        <p>Developer • 3D Modeler • Builder</p>
-      </div>
-
-      <div class="info-card">
-        <h3>Contact</h3>
-
-        <div class="contact-buttons">
-
-          <a href="https://www.roblox.com/users/483821130/profile" target="_blank" class="contact-btn roblox">
-            <img src="robloxlogo.png" alt="Roblox">
-            <span>Roblox Profile</span>
-            <div class="shine"></div>
-          </a>
-
-          <a href="https://discord.com/users/1097688621286436914" target="_blank" class="contact-btn discord">
-            <img src="discordlogo.jpg" alt="Discord">
-            <span>Discord Profile</span>
-            <div class="shine"></div>
-          </a>
-
-        </div>
-      </div>
-
-    </div>
-
-    <div class="about-main">
-      <p>
-        Hello! I am Jayden / goo, an experienced developer specializing in 3D modeling and building.
-        I have worked across FiveM / GTA5 asset development and Roblox experiences, contributing to
-        million-member groups and games that have peaked at nearly <strong>50,000 active players</strong>.
-      </p>
-
-      <p>
-        Beyond development, I specialize in business strategy, marketing, and sales. I analyze game
-        performance and player behavior to improve retention and revenue outcomes.
-      </p>
-
-      <p>
-        I also provide legal advisory support, including drafting cease-and-desists, copyright claims,
-        contracts, and other protective documentation.
-      </p>
-
-      <p>
-        I look forward to helping turn your greatest ideas into a successful reality.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-</div>
-
-<script>
-window.onbeforeunload = function () { window.scrollTo(0, 0); };
-
-const nebula = document.getElementById("nebula-background");
-document.addEventListener("mousemove", e => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 50;
-  const y = (e.clientY / window.innerHeight - 0.5) * 50;
-  nebula.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
-});
-
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 180 },
-    color: { value: ["#9b59b6","#6c2bd9","#e74c3c","#3498db"] },
-    shape: { type: "circle" },
-    opacity: { value: 0.9, random: true },
-    size: { value: 2, random: true },
-    move: { enable: true, speed: 0.4, random: true },
-    line_linked: { enable: false }
-  },
-  interactivity: {
-    events: { onhover: { enable: true, mode: "repulse" } },
-    modes: { repulse: { distance: 120, duration: 0.4 } }
-  }
-});
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("show");
-  });
-},{ threshold: 0.15 });
-
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
-});
-</script>
-
-</body>
-</html>
