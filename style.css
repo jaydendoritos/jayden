@@ -329,3 +329,38 @@ body.loaded #loader {
     grid-template-columns: 1fr;
   }
 }
+/* CONTACT BUTTONS */
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.contact-btn {
+  display: block;
+  text-align: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  border: 1px solid #6c2bd9;
+  background: rgba(255,255,255,0.04);
+  transition: 0.25s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(155,89,182,0.5);
+}
+
+.contact-btn.roblox:hover {
+  background: linear-gradient(135deg,#00a2ff,#0066ff);
+  border-color: #00a2ff;
+}
+
+.contact-btn.discord:hover {
+  background: linear-gradient(135deg,#5865F2,#404eed);
+  border-color: #5865F2;
+}
