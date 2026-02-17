@@ -261,3 +261,71 @@ body.loaded #loader {
   pointer-events: none;
   transition: opacity 0.6s ease;
 }
+/* ===== ABOUT WIKI LAYOUT ===== */
+.about-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-left h2 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+}
+
+.about-left p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.info-card {
+  background: rgba(0,0,0,0.35);
+  border: 2px solid #4a2a63;
+  border-radius: 18px;
+  padding: 25px;
+  backdrop-filter: blur(20px);
+}
+
+.info-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.info-row span:first-child {
+  color: #aaa;
+}
+
+.info-card a {
+  color: #9b59b6;
+  text-decoration: none;
+}
+
+.info-card a:hover {
+  text-decoration: underline;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+}
