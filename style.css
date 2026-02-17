@@ -364,3 +364,133 @@ body.loaded #loader {
   background: linear-gradient(135deg,#5865F2,#404eed);
   border-color: #5865F2;
 }
+/* ===== ENHANCED ABOUT SECTION ===== */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-sidebar {
+  position: sticky;
+  top: 120px;
+}
+
+.info-card {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(155,89,182,0.35);
+  border-radius: 18px;
+  padding: 22px 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 0 25px rgba(155,89,182,0.08);
+  transition: 0.25s ease;
+}
+
+.info-card:hover {
+  border-color: rgba(155,89,182,0.7);
+  box-shadow: 0 0 35px rgba(155,89,182,0.18);
+}
+
+.info-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #e7d9ff;
+}
+
+.info-card p {
+  color: #d4c9ff;
+  font-size: 0.95rem;
+}
+
+/* CONTACT BUTTONS */
+
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.contact-btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  border: 1px solid #6c2bd9;
+  background: rgba(255,255,255,0.04);
+  transition: 0.25s ease;
+}
+
+.contact-btn img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.contact-btn .shine {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+  transform: skewX(-25deg);
+}
+
+.contact-btn:hover .shine {
+  animation: shineMove 0.7s ease;
+}
+
+@keyframes shineMove {
+  100% { left: 130%; }
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(155,89,182,0.4);
+}
+
+.contact-btn.roblox:hover {
+  background: linear-gradient(135deg,#00a2ff,#0066ff);
+  border-color: #00a2ff;
+}
+
+.contact-btn.discord:hover {
+  background: linear-gradient(135deg,#5865F2,#404eed);
+  border-color: #5865F2;
+}
+
+.about-main {
+  text-align: left;
+  max-width: 850px;
+}
+
+.about-main p {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: #e9e3ff;
+  margin-bottom: 18px;
+}
+
+.about-main strong {
+  color: #ffffff;
+}
+
+.about-main::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-bottom: 18px;
+  background: linear-gradient(90deg,#9b59b6,#6c2bd9);
+  border-radius: 3px;
+}
