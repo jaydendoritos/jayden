@@ -1,259 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Jayden's Portfolio</title>
-
-<link rel="stylesheet" href="style.css" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090b">
+  <meta name="description" content="Jayden / goo — developer, builder, business operator, and creator-side advisor.">
+  <title>Jayden / goo — Developer & Operator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="ambient" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Jayden, back to top"><span class="brand-mark">J</span><span>JAYDEN <span class="brand-slash">/</span> W1VVO</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a class="nav-contact" href="https://discord.com/users/1097688621286436914" target="_blank" rel="noopener noreferrer">Contact <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
 
-<!-- NEBULA JD LOADER -->
-<div id="loader">
-  <div class="loader-core">
-    <div class="loader-ring"></div>
-    <div class="loader-text">JD</div>
-  </div>
-</div>
-
-<div id="nebula-background"></div>
-<div id="particles-js"></div>
-
-<nav>
-  <div class="logo">JD</div>
-  <div class="nav-links">
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-  </div>
-</nav>
-
-<div class="wrapper">
-
-<!-- HERO -->
-<section class="hero">
-  <h1 id="marble-text">Jayden's Portfolio</h1>
-  <p class="subtitle">Development • Legal Assistance • Business Professional</p>
-
-  <div class="stats-card">
-    <p>Total Roblox Visits</p>
-    <p class="stat-number"><strong></strong>170M+</p>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="section reveal">
-  <h2>Projects</h2>
-
-  <div class="project-grid">
-
-    <!-- ROW 1 -->
-    <div class="project-card reveal">
-      <img src="image.png" alt="Project Realism" />
-      <h3>Project Realism | City-17</h3>
-      <p class="description">Long term builder and 3d modeler, morph development and divisional engineering</p>
-      <p class="visits">Visits: 18M+</p>
-      <p class="ccu">Highest CCU: 720</p>
-      <div class="buttons">
-        <a href="https://www.roblox.com/games/509062192/Project-Realism" target="_blank">Play</a>
-        <a href="https://www.roblox.com/communities/2808906/The-Robine#!/about" target="_blank">Group</a>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-mosaic" aria-hidden="true">
+        <img src="image.png" alt=""><img src="image (2).png" alt=""><img src="image (1).png" alt=""><img src="redcelllogo.png" alt="">
       </div>
-    </div>
-
-    <div class="project-card reveal">
-      <img src="image (2).png" alt="Drill Digging Simulator" />
-      <h3>Drill Digging Simulator</h3>
-      <p class="description">Project Manager, Community Manager, Lead Builder and 3d Modeler, Legal and Financial Advisor</p>
-      <p class="visits">Visits: 103M+</p>
-      <p class="ccu">Highest CCU: 43,000</p>
-      <div class="buttons">
-        <a href="https://www.roblox.com/games/125723653259639/Drill-Digging-Simulator" target="_blank">Play</a>
-        <a href="https://www.roblox.com/communities/35592307/Arcadasi-Studios#!/about" target="_blank">Group</a>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span class="status-dot"></span> ROBLOX DEV · BUILDER · BUSINESS</p>
+        <h1>JAYDEN<span class="hero-period">.</span></h1>
+        <p class="hero-subtitle">I build games and help run<br><span>the business behind them.</span></p>
+        <p class="hero-description">I script, model, and build. I also manage projects, figure out how to grow them, and help protect the work.</p>
       </div>
-    </div>
-
-    <div class="project-card reveal">
-      <img src="image (1).png" alt="Reign of Royales" />
-      <h3>Reign of Royales</h3>
-      <p class="description">Reversal Compound Builder, RoRGrounds Builder, Clocktower Builder - 3d Modeling as well</p>
-      <p class="visits">Visits: 1.5M+</p>
-      <p class="ccu">Highest CCU: NONE</p>
-      <div class="buttons">
-        <a href="https://www.roblox.com/games/7845941294/Reversal-Compound" target="_blank">Play</a>
-        <a href="https://www.roblox.com/communities/5540551/Reign-of-Royales#!/about" target="_blank">Group</a>
+      <div class="hero-stats" aria-label="Live portfolio statistics">
+        <div class="hero-stat"><span class="stat-label">PORTFOLIO VISITS</span><strong id="total-visits">—</strong><span class="stat-note">Across tracked experiences</span></div>
+        <div class="hero-stat"><span class="stat-label"><i class="live-dot"></i> PLAYING NOW</span><strong id="total-playing">—</strong><span class="stat-note">Across tracked experiences</span></div>
+        <div class="stats-updated"><span class="live-ring"></span><span>LIVE ROBLOX STATS</span><time id="stats-updated">Connecting…</time></div>
       </div>
-    </div>
+      <a class="hero-scroll" href="#about">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a>
+    </section>
 
-    <!-- ROW 2 -->
-    <div class="project-card reveal">
-      <img src="redcelllogo.png" alt="The Red Cell" />
-      <h3>The Red Cell</h3>
-      <p class="description">3d modeling, Building, Divisional Engineer</p>
-      <p class="visits">Visits: 38M+</p>
-      <p class="ccu">Highest CCU: 400</p>
-      <div class="buttons">
-        <a href="https://www.roblox.com/games/885450884/The-Grand-Crossing" target="_blank">Play</a>
-        <a href="https://www.roblox.com/communities/3880488/The-Red-Cell#!/about" target="_blank">Group</a>
+    <section id="about" class="about section-wrap">
+      <div class="section-heading">
+        <p class="section-label">01 / ABOUT</p>
+        <h2>A bit about me.</h2>
+        <p class="section-subtitle">I build things. I also help keep them moving.</p>
       </div>
-    </div>
-
-    <div class="project-card reveal">
-      <img src="royalmarineslogo.png" alt="Royal Marines" />
-      <h3>Royal Marines</h3>
-      <p class="description">Builder, 3d modeler, Marketing / Sales specialist</p>
-      <p class="visits">Visits: 439k</p>
-      <p class="ccu">Highest CCU: 120</p>
-      <div class="buttons">
-        <a href="https://www.roblox.com/games/4475184011/Marine-Academy" target="_blank">Play</a>
-        <a href="https://www.roblox.com/communities/5284316/RM-Royal-Marines#!/about" target="_blank">Group</a>
+      <div class="about-grid">
+        <article class="about-panel about-intro">
+          <span class="panel-index">THE SHORT VERSION</span>
+          <p class="about-lead">I’m Jayden. Online, I go by w1vvo. I started out building on Roblox, then got pulled into pretty much every side of making a game.</p>
+          <p>These days I split my time between scripting, modeling, building, and finding better ways to work with AI. I’ve also managed projects and communities, worked on marketing and acquisitions, and helped with business and legal issues along the way.</p>
+          <p>I like figuring out what a project needs next—whether that’s a better workflow, a clearer plan, or someone to sort out the details.</p>
+        </article>
+        <article class="about-panel about-toolkit">
+          <span class="panel-index">THINGS I WORK ON</span>
+          <div class="skill-group"><span class="skill-heading">MAKE</span><div class="skill-tags"><span>Scripting</span><span>Modeling</span><span>Building</span><span>AI workflows</span></div></div>
+          <div class="skill-group"><span class="skill-heading">RUN</span><div class="skill-tags"><span>Business management</span><span>Marketing</span><span>Strategy</span><span>Acquisitions</span></div></div>
+          <div class="skill-group"><span class="skill-heading">HELP WITH</span><div class="skill-tags"><span>Project management</span><span>Legal advisory</span><span>Communities</span></div></div>
+        </article>
       </div>
-    </div>
-
-    <div class="project-card reveal">
-      <img src="dragonbornlogo.png" alt="Dragonborn PMC" />
-      <h3>Dragonborn - PMC</h3>
-      <p class="description">Map designer, Builder, 3d modeling</p>
-      <p class="visits">Visits: 2M+</p>
-      <p class="ccu">Highest CCU: NONE</p>
-      <div class="buttons">
-        <a href="https://www.roblox.com/games/16315665693/Draconic-Ruins" target="_blank">Play</a>
-        <a href="https://www.roblox.com/communities/4760223/Dragonborn-PMC#!/about" target="_blank">Group</a>
+      <div class="profile-strip">
+        <div class="profile-id"><span class="profile-avatar" aria-hidden="true">W</span><span><small class="profile-kicker">JAYDEN · ALSO KNOWN AS</small><strong>w1vvo</strong><small>Developer · Builder · Business operator</small></span></div>
+        <span class="profile-line">Have a project in mind? Get in touch.</span>
+        <div class="profile-links"><a href="https://www.roblox.com/users/483821130/profile" target="_blank" rel="noopener noreferrer"><span>Roblox profile</span><strong>@w1vvo</strong><b>↗</b></a><a href="https://discord.com/users/1097688621286436914" target="_blank" rel="noopener noreferrer"><span>Discord</span><strong>Message me</strong><b>↗</b></a></div>
       </div>
-    </div>
+    </section>
 
-    <!-- ROW 3 -->
-    <div class="project-card reveal">
-      <img src="snowcorelogo.png" alt="Snow Core" />
-      <h3>Snow Core</h3>
-      <p class="description">3d modeler, Morph developer (project never released)</p>
-      <p class="visits">Visits: 3M+</p>
-      <p class="ccu">Highest CCU: NONE</p>
-      <div class="buttons">
-        <a href="https://www.roblox.com/games/5361853069/Auroras-Dam-RAID" target="_blank">Play</a>
-        <a href="https://www.roblox.com/communities/5665804/Snow-Core#!/about" target="_blank">Group</a>
+    <section id="projects" class="projects section-wrap">
+      <div class="projects-heading">
+        <div class="section-heading"><p class="section-label">02 / PROJECTS</p><h2>Some things I’ve worked on.</h2></div>
+        <p class="section-subtitle">Live visits and player counts. Updated every five minutes.</p>
       </div>
-    </div>
-
-    <div class="project-card reveal">
-      <img src="commandoslogo.png" alt="Nighthawk Commandos" />
-      <h3>TNI:C | Nighthawk Commandos</h3>
-      <p class="description">Map designer, 3d modeler, Builder</p>
-      <p class="visits">Visits: 1M+</p>
-      <p class="ccu">Highest CCU: NONE</p>
-      <div class="buttons">
-        <a href="#">Play</a>
-        <a href="https://www.roblox.com/communities/3496996/Nighthawk-Commandos#!/about" target="_blank">Group</a>
+      <div class="project-grid">
+        <article class="project-card" data-place-id="123720558354386">
+          <a class="project-image" href="https://www.roblox.com/games/123720558354386/Build-the-Pyramid" target="_blank" rel="noopener noreferrer" aria-label="Play Build the Pyramid"><img src="build-the-pyramid.png" alt="Build the Pyramid" loading="lazy"><span class="image-arrow">↗</span></a>
+          <div class="project-meta"><span>01 / SIMULATOR</span><span class="peak-pill">33K PEAK CCU</span></div>
+          <h3>Build the Pyramid</h3>
+          <p class="project-description">Stack blocks with your crew, get stronger, and build the pyramid.</p>
+          <div class="project-stats"><span><strong data-stat="visits">—</strong><small>VISITS</small></span><span><strong data-stat="playing">—</strong><small>PLAYING NOW</small></span></div>
+          <a class="play-link" href="https://www.roblox.com/games/123720558354386/Build-the-Pyramid" target="_blank" rel="noopener noreferrer">Play on Roblox <span>↗</span></a>
+        </article>
+        <article class="project-card" data-place-id="125723653259639">
+          <a class="project-image" href="https://www.roblox.com/games/125723653259639/Drill-Digging-Simulator" target="_blank" rel="noopener noreferrer" aria-label="Play Drill Digging Simulator"><img src="image (2).png" alt="Drill Digging Simulator" loading="lazy"><span class="image-arrow">↗</span></a>
+          <div class="project-meta"><span>02 / SIMULATOR</span><span class="peak-pill">43K PEAK CCU</span></div>
+          <h3>Drill Digging Simulator</h3>
+          <p class="project-description">I managed the project and community, and worked on building and 3D modeling.</p>
+          <div class="project-stats"><span><strong data-stat="visits">—</strong><small>VISITS</small></span><span><strong data-stat="playing">—</strong><small>PLAYING NOW</small></span></div>
+          <a class="play-link" href="https://www.roblox.com/games/125723653259639/Drill-Digging-Simulator" target="_blank" rel="noopener noreferrer">Play on Roblox <span>↗</span></a>
+        </article>
+        <article class="project-card" data-place-id="509062192">
+          <a class="project-image" href="https://www.roblox.com/games/509062192/Project-Realism" target="_blank" rel="noopener noreferrer" aria-label="Play Project Realism"><img src="image.png" alt="Project Realism: City-17" loading="lazy"><span class="image-arrow">↗</span></a>
+          <div class="project-meta"><span>03 / ROLEPLAY</span><span class="peak-pill">720 PEAK CCU</span></div>
+          <h3>Project Realism <span>/ City-17</span></h3>
+          <p class="project-description">Long-term building, 3D modeling, morph development, and divisional engineering.</p>
+          <div class="project-stats"><span><strong data-stat="visits">—</strong><small>VISITS</small></span><span><strong data-stat="playing">—</strong><small>PLAYING NOW</small></span></div>
+          <a class="play-link" href="https://www.roblox.com/games/509062192/Project-Realism" target="_blank" rel="noopener noreferrer">Play on Roblox <span>↗</span></a>
+        </article>
+        <article class="project-card" data-place-id="7845941294">
+          <a class="project-image" href="https://www.roblox.com/games/7845941294/Reversal-Compound" target="_blank" rel="noopener noreferrer" aria-label="Play Reign of Royales"><img src="image (1).png" alt="Reign of Royales" loading="lazy"><span class="image-arrow">↗</span></a>
+          <div class="project-meta"><span>04 / ROLEPLAY</span><span class="peak-pill">BUILDING · 3D</span></div>
+          <h3>Reign of Royales</h3>
+          <p class="project-description">I built and modeled parts of Reversal Compound, RoRGrounds, and the Clocktower.</p>
+          <div class="project-stats"><span><strong data-stat="visits">—</strong><small>VISITS</small></span><span><strong data-stat="playing">—</strong><small>PLAYING NOW</small></span></div>
+          <a class="play-link" href="https://www.roblox.com/games/7845941294/Reversal-Compound" target="_blank" rel="noopener noreferrer">Play on Roblox <span>↗</span></a>
+        </article>
+        <article class="project-card" data-place-id="885450884">
+          <a class="project-image logo-image" href="https://www.roblox.com/games/885450884/The-Grand-Crossing" target="_blank" rel="noopener noreferrer" aria-label="Play The Red Cell"><img src="redcelllogo.png" alt="The Red Cell" loading="lazy"><span class="image-arrow">↗</span></a>
+          <div class="project-meta"><span>05 / ROLEPLAY</span><span class="peak-pill">400 PEAK CCU</span></div>
+          <h3>The Red Cell</h3>
+          <p class="project-description">3D modeling, building, and divisional engineering.</p>
+          <div class="project-stats"><span><strong data-stat="visits">—</strong><small>VISITS</small></span><span><strong data-stat="playing">—</strong><small>PLAYING NOW</small></span></div>
+          <a class="play-link" href="https://www.roblox.com/games/885450884/The-Grand-Crossing" target="_blank" rel="noopener noreferrer">Play on Roblox <span>↗</span></a>
+        </article>
+        <article class="project-card" data-place-id="4475184011">
+          <a class="project-image logo-image" href="https://www.roblox.com/games/4475184011/Marine-Academy" target="_blank" rel="noopener noreferrer" aria-label="View Royal Marines"><img src="royalmarineslogo.png" alt="Royal Marines" loading="lazy"><span class="image-arrow">↗</span></a>
+          <div class="project-meta"><span>06 / MILITARY</span><span class="peak-pill">120 PEAK CCU</span></div>
+          <h3>Royal Marines</h3>
+          <p class="project-description">Building, modeling, and marketing / sales specialist.</p>
+          <div class="project-stats"><span><strong data-stat="visits">—</strong><small>VISITS</small></span><span><strong data-stat="playing">—</strong><small>PLAYING NOW</small></span></div>
+          <a class="play-link" href="https://www.roblox.com/games/4475184011/Marine-Academy" target="_blank" rel="noopener noreferrer">View on Roblox <span>↗</span></a>
+        </article>
+        <article class="project-card" data-place-id="16315665693">
+          <a class="project-image logo-image" href="https://www.roblox.com/games/16315665693/Draconic-Ruins" target="_blank" rel="noopener noreferrer" aria-label="View Dragonborn PMC"><img src="dragonbornlogo.png" alt="Dragonborn PMC" loading="lazy"><span class="image-arrow">↗</span></a>
+          <div class="project-meta"><span>07 / MILITARY</span><span class="peak-pill">—</span></div>
+          <h3>Dragonborn <span>/ PMC</span></h3>
+          <p class="project-description">Map design, building, and 3D modeling.</p>
+          <div class="project-stats"><span><strong data-stat="visits">—</strong><small>VISITS</small></span><span><strong data-stat="playing">—</strong><small>PLAYING NOW</small></span></div>
+          <a class="play-link" href="https://www.roblox.com/games/16315665693/Draconic-Ruins" target="_blank" rel="noopener noreferrer">View on Roblox <span>↗</span></a>
+        </article>
+        <article class="project-card" data-place-id="5361853069">
+          <a class="project-image logo-image" href="https://www.roblox.com/games/5361853069/Auroras-Dam-RAID" target="_blank" rel="noopener noreferrer" aria-label="View Snow Core"><img src="snowcorelogo.png" alt="Snow Core" loading="lazy"><span class="image-arrow">↗</span></a>
+          <div class="project-meta"><span>08 / MILITARY</span><span class="peak-pill">ARCHIVE</span></div>
+          <h3>Snow Core</h3>
+          <p class="project-description">3D modeling and morph development for an unreleased project.</p>
+          <div class="project-stats"><span><strong data-stat="visits">—</strong><small>VISITS</small></span><span><strong data-stat="playing">—</strong><small>PLAYING NOW</small></span></div>
+          <a class="play-link" href="https://www.roblox.com/games/5361853069/Auroras-Dam-RAID" target="_blank" rel="noopener noreferrer">View on Roblox <span>↗</span></a>
+        </article>
+        <article class="project-card">
+          <a class="project-image logo-image" href="https://www.roblox.com/communities/3496996/Nighthawk-Commandos#!/about" target="_blank" rel="noopener noreferrer" aria-label="View Nighthawk Commandos group"><img src="commandoslogo.png" alt="Nighthawk Commandos" loading="lazy"><span class="image-arrow">↗</span></a>
+          <div class="project-meta"><span>09 / MILITARY</span><span class="peak-pill">ARCHIVE</span></div>
+          <h3>Nighthawk Commandos</h3>
+          <p class="project-description">Map design, building, and 3D modeling for a tactical Roblox community.</p>
+          <div class="project-stats"><span><strong>—</strong><small>VISITS</small></span><span><strong>—</strong><small>PLAYING NOW</small></span></div>
+          <a class="play-link" href="https://www.roblox.com/communities/3496996/Nighthawk-Commandos#!/about" target="_blank" rel="noopener noreferrer">Visit group <span>↗</span></a>
+        </article>
       </div>
-    </div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand" href="#top"><span class="brand-mark">J</span><span>JAYDEN <span class="brand-slash">/</span> W1VVO</span></a><span>Built by Jayden · <a href="#top">Back to top ↑</a></span></footer>
 
-  </div>
-</section>
+  <script>
+    const localPreview = ['localhost', '127.0.0.1'].includes(location.hostname);
+    const statsUrl = localPreview
+      ? 'stats.json'
+      : 'https://raw.githubusercontent.com/jaydendoritos/jayden/live-stats/stats.json';
+    const numberFormat = new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 1 });
 
+    const revealItems = document.querySelectorAll('.about-panel, .profile-strip, .project-card');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
 
-<!-- ABOUT -->
-<section id="about" class="section reveal">
-  <h2>About Me</h2>
+      revealItems.forEach((item, index) => {
+        item.style.setProperty('--reveal-delay', `${(index % 3) * 90}ms`);
+        item.classList.add('scroll-reveal');
+        revealObserver.observe(item);
+      });
+    }
 
-  <div class="about-layout">
+    function setStatsStatus(message, isLive = false) {
+      const status = document.querySelector('.stats-updated');
+      status.classList.toggle('is-live', isLive);
+      document.getElementById('stats-updated').textContent = message;
+    }
 
-    <div class="about-sidebar">
+    async function refreshStats() {
+      try {
+        const response = await fetch(`${statsUrl}?t=${Date.now()}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error('Stats feed unavailable');
+        const snapshot = await response.json();
+        let visits = 0;
+        let playing = 0;
+        let tracked = 0;
 
-      <div class="info-card">
-        <h3>Profile</h3>
-        <p>Jayden / goo</p>
-        <p>Developer • 3D Modeler • Builder</p>
-      </div>
+        document.querySelectorAll('.project-card[data-place-id]').forEach((card) => {
+          const game = snapshot.games?.[card.dataset.placeId];
+          if (!game) return;
+          tracked += 1;
+          visits += Number(game.visits) || 0;
+          playing += Number(game.playing) || 0;
+          card.querySelector('[data-stat="visits"]').textContent = numberFormat.format(game.visits);
+          card.querySelector('[data-stat="playing"]').textContent = numberFormat.format(game.playing);
+        });
 
-      <div class="info-card">
-        <h3>Contact</h3>
+        if (!tracked) throw new Error('No game stats in feed');
+        document.getElementById('total-visits').textContent = numberFormat.format(visits);
+        document.getElementById('total-playing').textContent = numberFormat.format(playing);
+        const updated = new Date(snapshot.updatedAt);
+        const ageMinutes = Math.max(0, Math.floor((Date.now() - updated.getTime()) / 60000));
+        const freshness = ageMinutes < 1 ? 'Updated just now' : `Updated ${ageMinutes}m ago`;
+        setStatsStatus(`${freshness} · refreshes every 5 min`, ageMinutes <= 10);
+      } catch (error) {
+        setStatsStatus('Live stats temporarily unavailable');
+        console.error(error);
+      }
+    }
 
-        <div class="contact-buttons">
-
-          <a href="https://www.roblox.com/users/483821130/profile" target="_blank" class="contact-btn roblox">
-            <img src="robloxlogo.png" alt="Roblox">
-            <span>Roblox Profile</span>
-            <div class="shine"></div>
-          </a>
-
-          <a href="https://discord.com/users/1097688621286436914" target="_blank" class="contact-btn discord">
-            <img src="discordlogo.jpg" alt="Discord">
-            <span>Discord Profile</span>
-            <div class="shine"></div>
-          </a>
-
-        </div>
-      </div>
-
-    </div>
-
-    <div class="about-main">
-      <p>
-        Hello! I am Jayden / goo, an experienced developer specializing in 3D modeling and building.
-        I have worked across FiveM / GTA5 asset development and Roblox experiences, contributing to
-        million-member groups and games that have peaked at nearly <strong>50,000 active players</strong>.
-      </p>
-
-      <p>
-        Beyond development, I specialize in business strategy, marketing, and sales. I analyze game
-        performance and player behavior to improve retention and revenue outcomes.
-      </p>
-
-      <p>
-        I also provide legal advisory support, including drafting cease-and-desists, copyright claims,
-        contracts, and other protective documentation.
-      </p>
-
-      <p>
-        I look forward to helping turn your greatest ideas into a successful reality.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-</div>
-
-<script>
-window.onbeforeunload = function () { window.scrollTo(0, 0); };
-
-const nebula = document.getElementById("nebula-background");
-document.addEventListener("mousemove", e => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 50;
-  const y = (e.clientY / window.innerHeight - 0.5) * 50;
-  nebula.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
-});
-
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 180 },
-    color: { value: ["#9b59b6","#6c2bd9","#e74c3c","#3498db"] },
-    shape: { type: "circle" },
-    opacity: { value: 0.9, random: true },
-    size: { value: 2, random: true },
-    move: { enable: true, speed: 0.4, random: true },
-    line_linked: { enable: false }
-  },
-  interactivity: {
-    events: { onhover: { enable: true, mode: "repulse" } },
-    modes: { repulse: { distance: 120, duration: 0.4 } }
-  }
-});
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("show");
-  });
-},{ threshold: 0.15 });
-
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
-});
-</script>
-
+    refreshStats();
+    window.setInterval(refreshStats, 60_000);
+  </script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+name: Refresh Roblox live stats
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out site source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch public Roblox stats
+        run: python3 scripts/update_roblox_stats.py
+
+      - name: Publish snapshot to live-stats branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp stats.json "$RUNNER_TEMP/roblox-stats.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git ls-remote --exit-code --heads origin live-stats >/dev/null 2>&1; then
+            git fetch origin live-stats
+            git checkout -B live-stats origin/live-stats
+          else
+            git checkout --orphan live-stats
+            git rm -rf --cached . || true
+          fi
+
+          cp "$RUNNER_TEMP/roblox-stats.json" stats.json
+          git add stats.json
+          git commit -m "Refresh live Roblox stats"
+          git push origin live-stats
