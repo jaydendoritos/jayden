@@ -156,7 +156,7 @@
     const localPreview = ['localhost', '127.0.0.1'].includes(location.hostname);
     const statsUrl = localPreview
       ? 'stats.json'
-      : 'https://raw.githubusercontent.com/jaydendoritos/jayden/live-stats/stats.json';
+      : 'https://api.github.com/repos/jaydendoritos/jayden/contents/stats.json?ref=live-stats';
     const numberFormat = new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 1 });
 
     const revealItems = document.querySelectorAll('.about-panel, .profile-strip, .project-card');
@@ -185,9 +185,19 @@
 
     async function refreshStats() {
       try {
-        const response = await fetch(`${statsUrl}?t=${Date.now()}`, { cache: 'no-store' });
+        const response = await fetch(statsUrl, {
+          cache: 'no-store',
+          headers: localPreview ? {} : { Accept: 'application/vnd.github+json' },
+        });
         if (!response.ok) throw new Error('Stats feed unavailable');
-        const snapshot = await response.json();
+        const feed = await response.json();
+        let snapshot = feed;
+        if (!localPreview) {
+          if (feed.encoding !== 'base64' || !feed.content) throw new Error('Stats feed format is invalid');
+          const binary = atob(feed.content.replace(/\s/g, ''));
+          const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+          snapshot = JSON.parse(new TextDecoder().decode(bytes));
+        }
         let visits = 0;
         let playing = 0;
         let tracked = 0;
@@ -216,7 +226,7 @@
     }
 
     refreshStats();
-    window.setInterval(refreshStats, 60_000);
+    window.setInterval(refreshStats, 5 * 60_000);
   </script>
 </body>
 </html>
