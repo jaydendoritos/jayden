@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch public Roblox visit/player counts for the portfolio's games."""
+"""Fetch public Roblox and Discord counts for the portfolio."""
 
 from datetime import datetime, timezone
 import json
@@ -36,8 +36,26 @@ def main() -> None:
     if missing:
         raise RuntimeError(f"Roblox did not return stats for place IDs: {', '.join(sorted(missing))}")
 
+    now = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    discord = {"memberCount": None, "onlineCount": None, "updatedAt": None}
+    try:
+        invite = get_json("https://discord.com/api/v10/invites/garagegames?with_counts=true")
+        discord = {
+            "memberCount": invite.get("approximate_member_count"),
+            "onlineCount": invite.get("approximate_presence_count"),
+            "updatedAt": now,
+        }
+    except (HTTPError, URLError, TimeoutError, ValueError, KeyError) as error:
+        print(f"Warning: could not fetch Discord member count: {error}")
+        if OUTPUT.exists():
+            try:
+                discord = json.loads(OUTPUT.read_text(encoding="utf-8")).get("discord", discord)
+            except (OSError, ValueError):
+                pass
+
     payload = {
-        "updatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "updatedAt": now,
+        "discord": discord,
         "games": {
             place_id: {
                 "universeId": GAMES[place_id],

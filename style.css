@@ -119,20 +119,21 @@ img { display: block; max-width: 100%; }
 .play-link { display: flex; align-items: center; justify-content: space-between; margin-top: 9px; padding: 9px 11px; border: 1px solid rgba(231,234,237,.16); border-radius: 4px; background: linear-gradient(110deg,rgba(255,255,255,.12),rgba(255,255,255,.035)); color: #e2e5e8; font-size: 11px; text-decoration: none; transition: background .2s,border-color .2s; }
 .play-link:hover { border-color: rgba(255,255,255,.48); background: rgba(255,255,255,.16); }
 
-.community-feature { display: flex; align-items: center; gap: 18px; margin: 23px 0 0; padding: 19px 21px; border: 1px solid rgba(88,101,242,.35); border-radius: 8px; background: radial-gradient(ellipse at 8% 50%,rgba(88,101,242,.17),transparent 42%),linear-gradient(105deg,#171820,#101115 70%); box-shadow: inset 3px 0 0 #5865f2,0 12px 30px rgba(0,0,0,.16); transition: border-color .25s ease,transform .25s ease; }
-.community-feature:hover { transform: translateY(-3px); border-color: rgba(128,139,255,.68); }
-.community-mark { display: grid; width: 48px; height: 48px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(129,140,248,.48); border-radius: 13px; background: rgba(88,101,242,.17); }
-.community-mark img { width: 25px; height: 25px; border-radius: 5px; object-fit: contain; }
-.community-copy { min-width: 0; }
-.community-label { margin: 0 0 2px; color: #aeb5ff; font: 700 8px "Manrope",sans-serif; letter-spacing: .12em; }
-.community-label span { padding: 0 3px; color: #747dd0; }
-.community-copy h3 { margin: 0; color: #f1f2f7; font: 700 17px "Manrope",sans-serif; }
-.community-copy > p:last-child { margin: 2px 0 0; color: #aaadb9; font-size: 11px; }
-.community-role { margin-left: auto; padding: 7px 10px; border: 1px solid rgba(130,140,255,.38); border-radius: 4px; background: rgba(88,101,242,.13); color: #c7cbff; font: 700 8px "Manrope",sans-serif; letter-spacing: .08em; white-space: nowrap; }
-.community-links { display: flex; gap: 7px; }
-.community-links a { padding: 8px 10px; border: 1px solid rgba(235,238,255,.15); border-radius: 4px; color: #d4d5e0; font-size: 9px; text-decoration: none; white-space: nowrap; transition: background .2s ease,border-color .2s ease; }
-.community-links a:hover { border-color: rgba(147,156,255,.7); background: rgba(88,101,242,.18); }
-.community-links a span { padding-left: 5px; color: #aeb5ff; }
+.discord-card { border-color: rgba(88,101,242,.25); }
+.discord-card:hover { border-color: rgba(117,129,255,.7); }
+.discord-image { display: flex; align-items: center; justify-content: center; gap: 12px; background: linear-gradient(115deg,#242845,#191b2b 58%,#16171d); }
+.discord-image img { width: 56px; height: 56px; flex: 0 0 auto; border-radius: 12px; filter: none; object-fit: contain; }
+.discord-image-copy { display: flex; flex-direction: column; gap: 2px; }
+.discord-image-copy strong { color: #f3f4ff; font: 800 14px "Manrope",sans-serif; letter-spacing: .06em; }
+.discord-image-copy small { color: #aeb5ff; font: 700 8px "Manrope",sans-serif; letter-spacing: .12em; }
+.discord-role-pill { padding: 3px 6px; border: 1px solid rgba(130,140,255,.4); border-radius: 3px; color: #c4c9ff; font-size: 7px; white-space: nowrap; }
+.discord-stats { grid-template-columns: 1fr; border-color: rgba(130,140,255,.2); }
+.discord-stats strong { color: #d9dcff; }
+.discord-stats small { color: #aeb5ff; }
+.discord-cta { border-color: rgba(88,101,242,.65); background: linear-gradient(100deg,#5865f2,#4752c4); color: #fff; }
+.discord-cta:hover { border-color: #8992ff; background: linear-gradient(100deg,#6975ff,#5662dc); }
+.discord-group-link { display: block; margin: 7px 2px 0; color: #9da5ec; font-size: 9px; text-align: center; text-decoration: none; }
+.discord-group-link:hover { color: #d0d3ff; }
 
 .site-footer { display: flex; align-items: center; justify-content: space-between; width: min(var(--content),calc(100% - 72px)); min-height: 65px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09); color: #737a81; font-size: 9px; }
 .site-footer .brand { font-size: 10px; }
@@ -168,9 +169,6 @@ img { display: block; max-width: 100%; }
   .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .profile-strip { flex-wrap: wrap; }
   .profile-line { flex: 1; }
-  .community-feature { flex-wrap: wrap; gap: 12px; }
-  .community-role { margin-left: auto; }
-  .community-links { width: 100%; margin-left: 60px; }
 }
 @media (max-width: 480px) {
   .brand { gap: 7px; font-size: 10px; }
@@ -196,11 +194,6 @@ img { display: block; max-width: 100%; }
   .profile-line { display: none; }
   .profile-links { width: 100%; margin-left: 0; }
   .profile-links a { flex: 1; min-width: 0; }
-  .community-feature { gap: 10px; padding: 15px; }
-  .community-mark { width: 42px; height: 42px; }
-  .community-copy { flex: 1; }
-  .community-role { margin-left: 52px; }
-  .community-links { margin-left: 52px; }
   .projects-heading { display: block; }
   .projects-heading .section-subtitle { max-width: none; margin-top: 5px; text-align: left; }
   .project-grid { grid-template-columns: 1fr; gap: 13px; }
