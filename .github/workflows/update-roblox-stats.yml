@@ -27,6 +27,7 @@ jobs:
           cp stats.json "$RUNNER_TEMP/roblox-stats.json"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore --worktree --staged stats.json
 
           if git ls-remote --exit-code --heads origin live-stats >/dev/null 2>&1; then
             git fetch origin live-stats
