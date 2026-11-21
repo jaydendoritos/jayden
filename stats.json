@@ -1,22 +1,22 @@
 {
-  "updatedAt": "2026-11-21T19:45:35Z",
+  "updatedAt": "2026-11-21T23:57:53Z",
   "discord": {
-    "memberCount": 18850,
-    "onlineCount": 5583,
-    "updatedAt": "2026-11-21T19:45:35Z"
+    "memberCount": 18845,
+    "onlineCount": 4835,
+    "updatedAt": "2026-11-21T23:57:53Z"
   },
   "games": {
     "123720558354386": {
       "universeId": 10765012427,
       "name": "[Pt. 2 \ud83c\udf83] Build the Pyramid!",
-      "visits": 54424397,
-      "playing": 674
+      "visits": 54432118,
+      "playing": 641
     },
     "125723653259639": {
       "universeId": 7204130482,
       "name": "Drill Digging Simulator",
-      "visits": 121988197,
-      "playing": 151
+      "visits": 121990927,
+      "playing": 51
     },
     "509062192": {
       "universeId": 197306872,
@@ -27,14 +27,14 @@
     "7845941294": {
       "universeId": 3036768570,
       "name": "[DT] Reversal Compound",
-      "visits": 1311926,
-      "playing": 2
+      "visits": 1312033,
+      "playing": 29
     },
     "885450884": {
       "universeId": 368327886,
       "name": "The Grand Crossing [Border RP]",
-      "visits": 38640286,
-      "playing": 12
+      "visits": 38640497,
+      "playing": 7
     },
     "4475184011": {
       "universeId": 1427426011,
