@@ -1,51 +1,51 @@
 {
-  "updatedAt": "2026-11-22T06:30:17Z",
+  "updatedAt": "2026-11-22T14:52:07Z",
   "discord": {
-    "memberCount": 18839,
-    "onlineCount": 3659,
-    "updatedAt": "2026-11-22T06:30:17Z"
+    "memberCount": 18828,
+    "onlineCount": 4769,
+    "updatedAt": "2026-11-22T14:52:07Z"
   },
   "games": {
     "123720558354386": {
       "universeId": 10765012427,
       "name": "[Pt. 2 \ud83c\udf83] Build the Pyramid!",
-      "visits": 54449681,
-      "playing": 875
+      "visits": 54475964,
+      "playing": 966
     },
     "125723653259639": {
       "universeId": 7204130482,
       "name": "Drill Digging Simulator",
-      "visits": 121993637,
-      "playing": 83
+      "visits": 121999427,
+      "playing": 145
     },
     "509062192": {
       "universeId": 197306872,
       "name": "Project Realism",
-      "visits": 18469151,
-      "playing": 1
+      "visits": 18469152,
+      "playing": 0
     },
     "7845941294": {
       "universeId": 3036768570,
       "name": "[DT] Reversal Compound",
-      "visits": 1312094,
+      "visits": 1312162,
       "playing": 0
     },
     "885450884": {
       "universeId": 368327886,
       "name": "The Grand Crossing [Border RP]",
-      "visits": 38640546,
+      "visits": 38640595,
       "playing": 0
     },
     "4475184011": {
       "universeId": 1427426011,
       "name": "[MOVED] Marine Academy",
-      "visits": 474805,
+      "visits": 474808,
       "playing": 0
     },
     "16315665693": {
       "universeId": 5628599217,
       "name": "[RAID] Draconic Ruins",
-      "visits": 33491,
+      "visits": 33493,
       "playing": 0
     },
     "5361853069": {
