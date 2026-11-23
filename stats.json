@@ -1,22 +1,22 @@
 {
-  "updatedAt": "2026-11-22T20:55:09Z",
+  "updatedAt": "2026-11-23T01:28:27Z",
   "discord": {
-    "memberCount": 18818,
-    "onlineCount": 5291,
-    "updatedAt": "2026-11-22T20:55:09Z"
+    "memberCount": 18809,
+    "onlineCount": 3992,
+    "updatedAt": "2026-11-23T01:28:27Z"
   },
   "games": {
     "123720558354386": {
       "universeId": 10765012427,
       "name": "[Pt. 2 \ud83c\udf83] Build the Pyramid!",
-      "visits": 54488259,
-      "playing": 485
+      "visits": 54495761,
+      "playing": 504
     },
     "125723653259639": {
       "universeId": 7204130482,
       "name": "Drill Digging Simulator",
-      "visits": 122003702,
-      "playing": 99
+      "visits": 122005441,
+      "playing": 30
     },
     "509062192": {
       "universeId": 197306872,
@@ -27,14 +27,14 @@
     "7845941294": {
       "universeId": 3036768570,
       "name": "[DT] Reversal Compound",
-      "visits": 1312292,
-      "playing": 0
+      "visits": 1312412,
+      "playing": 2
     },
     "885450884": {
       "universeId": 368327886,
       "name": "The Grand Crossing [Border RP]",
-      "visits": 38640805,
-      "playing": 11
+      "visits": 38640861,
+      "playing": 1
     },
     "4475184011": {
       "universeId": 1427426011,
@@ -51,7 +51,7 @@
     "5361853069": {
       "universeId": 1879297957,
       "name": "\u2744\ufe0f| Aurora's Dam | RAID",
-      "visits": 1549741,
+      "visits": 1549742,
       "playing": 0
     }
   }
