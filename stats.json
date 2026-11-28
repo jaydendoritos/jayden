@@ -1,22 +1,22 @@
 {
-  "updatedAt": "2026-11-27T21:35:28Z",
+  "updatedAt": "2026-11-28T03:30:20Z",
   "discord": {
-    "memberCount": 18623,
-    "onlineCount": 5047,
-    "updatedAt": "2026-11-27T21:35:28Z"
+    "memberCount": 18613,
+    "onlineCount": 3975,
+    "updatedAt": "2026-11-28T03:30:20Z"
   },
   "games": {
     "123720558354386": {
       "universeId": 10765012427,
       "name": "[Pt. 2 \ud83c\udf83] Build the Pyramid!",
-      "visits": 54663165,
-      "playing": 420
+      "visits": 54672093,
+      "playing": 471
     },
     "125723653259639": {
       "universeId": 7204130482,
       "name": "Drill Digging Simulator",
-      "visits": 122060497,
-      "playing": 84
+      "visits": 122062655,
+      "playing": 45
     },
     "509062192": {
       "universeId": 197306872,
@@ -27,14 +27,14 @@
     "7845941294": {
       "universeId": 3036768570,
       "name": "[DT] Reversal Compound",
-      "visits": 1313693,
-      "playing": 1
+      "visits": 1313749,
+      "playing": 0
     },
     "885450884": {
       "universeId": 368327886,
       "name": "The Grand Crossing [Border RP]",
-      "visits": 38642489,
-      "playing": 0
+      "visits": 38642649,
+      "playing": 3
     },
     "4475184011": {
       "universeId": 1427426011,
@@ -45,7 +45,7 @@
     "16315665693": {
       "universeId": 5628599217,
       "name": "[RAID] Draconic Ruins",
-      "visits": 33495,
+      "visits": 33499,
       "playing": 0
     },
     "5361853069": {
